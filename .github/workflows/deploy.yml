@@ -25,6 +25,7 @@ jobs:
         npm run build
         cp -r ./.next/static ./.next/standalone/.next/
         cp -r ./public ./.next/standalone/
+        cp -r ./Dockerfile ./.next/standalone/
 
     - name: Copy files to EC2
       uses: appleboy/scp-action@master

@@ -1,0 +1,62 @@
+
+.fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.shaket {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.1s;
+}
+
+.article {
+  margin: 15px 0;
+  padding: 15px 25px;
+  border-radius: 20px;
+  transition: box-shadow 0.5s, opacity 0.5s;
+  cursor: pointer;
+}
+
+.article:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 鼠标悬停时的阴影效果 */
+  opacity: 1; /* 鼠标悬停时透明度为1 */
+
+  .shaket {
+    animation: shake 0.7s forwards;
+  }
+}
+
+
+
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2; /* 显示的行数 */
+  color: #998585;
+}

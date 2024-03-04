@@ -1,0 +1,41 @@
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #333;
+  font-weight: 500;
+  padding: 30px 40px;
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  a {
+    color: #333;
+    font-weight: 500;
+  }
+}
+
+.menu-item {
+  padding: 7px 10px;
+
+  &:hover {
+    color: #8d8b8b;
+  }
+}
+
+.sentence {
+  font-style: italic;
+  flex: 6;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+
+  &-show {
+    opacity: 1;
+  }
+}

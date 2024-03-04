@@ -1,0 +1,24 @@
+.markdown-editor {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.editor,
+.preview {
+  width: 48%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.editor .CodeMirror,
+.editor .CodeMirror-scroll {
+  min-height: 400px;
+}
+
+.preview {
+  overflow: auto;
+  background-color: #f9f9f9;
+}

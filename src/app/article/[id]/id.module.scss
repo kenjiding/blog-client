@@ -1,0 +1,36 @@
+.wrapper {
+  padding: 50px 60px;
+  height: 100%;
+  overflow: auto;
+
+  h1 {
+    text-align: center;
+    padding: 0 20px 20px 20px;
+  }
+}
+
+.preview {
+  padding: 40px 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  color: #7c7979;
+  font-size: 13px;
+  padding: 0 20px;
+}
+
+.markdown {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  h1, h2, h3, h4, h5 {
+    margin: 20px 0;
+  }
+
+  p {
+    line-height: 1.8; /* 调整这个值来改变行高 */
+    margin: 10px 0;
+  }
+}

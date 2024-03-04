@@ -16,7 +16,7 @@ const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false }
 async function saveData(data: any) {
   return await http({
     method: 'post',
-    url: `//3.82.26.31:3008/article/create`,
+    url: `http://3.82.26.31:3008/article/create`,
     data
   });
 }

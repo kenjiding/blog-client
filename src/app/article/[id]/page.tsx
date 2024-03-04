@@ -22,11 +22,11 @@ interface IArticle {
 }
 
 async function counter(id: any) {
-  return await http({ method: 'get', url: `//3.82.26.31:3008/article/counter/${id}`});
+  return await http({ method: 'get', url: `http://3.82.26.31:3008/article/counter/${id}`});
 }
 
 async function getData(id: any) {
-  return await http<IArticle>({ method: 'get', url: `//3.82.26.31:3008/article/get/${id}`});
+  return await http<IArticle>({ method: 'get', url: `http://3.82.26.31:3008/article/get/${id}`});
 }
 
 const MarkdownEditor: React.FC<IArticalProps> = ({ params }) => {

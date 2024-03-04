@@ -12,7 +12,7 @@ export default function ArticleCom() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await http({method: 'get', url: '//3.82.26.31:3008/article/get'});
+      const res = await http({method: 'get', url: 'http://3.82.26.31:3008/article/get'});
       setArticleData(res as any[]);
     }
     fetchData();

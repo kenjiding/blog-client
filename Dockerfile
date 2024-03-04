@@ -8,4 +8,4 @@ COPY . .
 # Expose port 3000
 EXPOSE 3000
 
-CMD ["node", "./standalone/server.js"]
+CMD ["node", "./.next/standalone/server.js"]

@@ -19,8 +19,8 @@ export default function Summary() {
         )}
         back={(
           <ul className={styles.content}>
-            <h1 style={{textAlign: 'center', fontSize: '16px'}}>Project Experience</h1>
-            <li>led the refactoring of complex projects.</li>
+            <li>Familiar with hybrid development, mobile terminal, PC terminal, responsive project development.</li>
+            <li>Familiar with webpack, rollup, vite, and using build tools for optimizing project performance.</li>
           </ul>
         )}></Card>
 

@@ -32,7 +32,7 @@ jobs:
         host: ${{ secrets.AMAZON_EC2_HOST }}
         username: ${{ secrets.AMAZON_EC2_NAME }}
         key: ${{ secrets.AMAZON_SECRET_KEY }}
-        source: "./Dockerfile ./.next/standalone/*" # 需要上传的文件
+        source: ./.next/standalone/* # 需要上传的文件
         target: '/home/ec2-user/app/ssr'
 
     # - name: shell EC2

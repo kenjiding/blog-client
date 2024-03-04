@@ -34,7 +34,7 @@ jobs:
         host: 3.82.26.31
         username: ec2-user
         key: ${{ secrets.AMAZON_SECRET_KEY }}
-        source: ./.next/standalone # 需要上传的文件
+        source: ./.next/standalone/ # 需要上传的文件
         target: '/home/ec2-user/app/ssr'
 
     # - name: shell EC2

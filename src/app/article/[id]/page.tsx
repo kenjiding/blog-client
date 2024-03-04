@@ -1,32 +1,54 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import styles from './id.module.scss';
 import 'highlight.js/styles/night-owl.css';
 import http from '@/utils/http';
 import rehypeHighlight from 'rehype-highlight';
-
+import Tags from '@/components/tags';
 interface IArticalProps {
-  articleData: {
-    title: string;
-    text: string;
-  },
   params: {
     id: string
   }
 }
 
-async function getData(id: any) {
-  return await http<{
-    text: string,
-    title: string,
-    createTime: string,
-    views: string,
-  }>({ method: 'get', url: `//localhost:3008/article/get/${id}`});
+interface IArticle {
+  title: string;
+  text: string;
+  createTime: string;
+  views: number;
+  tips: string;
+  tags: string;
 }
 
-const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
-  const articleData = await getData(params.id);
+async function counter(id: any) {
+  return await http({ method: 'get', url: `//3.82.26.31:3008/article/counter/${id}`});
+}
+
+async function getData(id: any) {
+  return await http<IArticle>({ method: 'get', url: `//3.82.26.31:3008/article/get/${id}`});
+}
+
+const MarkdownEditor: React.FC<IArticalProps> = ({ params }) => {
+  const [articleData, setArticleData] = useState<IArticle>({
+    title: '',
+    text: '',
+    createTime: '',
+    views: 0,
+    tips:'',
+    tags: ''
+  });
+  
+  useEffect(() => {
+    init();
+  }, [params.id]);
+
+  const init = async() => {
+    const articleData = await getData(params.id);
+    setArticleData(articleData);
+    counter(params.id);
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className='prose'>
@@ -35,12 +57,16 @@ const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
           <span>views: {articleData.views}</span>
           <span>Date: {articleData.createTime}</span>
         </div>
+        { articleData.tips ? <p className={styles.tips}>{articleData.tips}</p> : null }
         <div className={styles.preview}>
           <ReactMarkdown
             className={styles.markdown}
-            rehypePlugins={[rehypeHighlight]}
-            children={articleData.text}></ReactMarkdown>
+            rehypePlugins={[rehypeHighlight]}>{articleData.text}</ReactMarkdown>
         </div>
+      </div>
+
+      <div style={{padding: '20px'}}>
+        <Tags tags={articleData.tags}></Tags>
       </div>
     </div>
   );

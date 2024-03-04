@@ -16,7 +16,7 @@ const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false }
 async function saveData(data: any) {
   return await http({
     method: 'post',
-    url: `//localhost:3008/article/create`,
+    url: `//3.82.26.31:3008/article/create`,
     data
   });
 }
@@ -37,12 +37,12 @@ const MarkdownEditor: NextPage = () => {
 
   return (
     <div style={{height: '100%', overflow: 'auto'}}>
-      <div style={{padding: '20px 20px'}}>
+      <div style={{padding: '10px 20px'}}>
         Title:
         <Input value={form.title} onChange={(e) => setForm({...form, title: e.target.value})} />
       </div>
         
-      <Row style={{padding: '20px 20px'}} gutter={16}>
+      <Row style={{padding: '0px 20px 20px 20px'}} gutter={16}>
         <Col span={12}>
           Tags:<Input value={form.tags} onChange={(e) => setForm({...form, tags: e.target.value})} />
         </Col>

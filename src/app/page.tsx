@@ -1,9 +1,9 @@
 import ArticleCom from '@/components/article';
 
-export default function Home({children}: {
-  children: React.ReactNode;
-}) {
+export default function Home() {
   return (
-    <ArticleCom></ArticleCom>
+    <>
+      <ArticleCom></ArticleCom>
+    </>
   );
 }

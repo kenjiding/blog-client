@@ -41,7 +41,7 @@ const request = <T>(url: string, configs: RequestInit): Promise<T> => {
 
   delete configs.data;
 
-  return fetch(getHost(PrePath + url), configs).then(response => {
+  return fetch(url, configs).then(response => {
     if (!response.ok) {
       if (!/^2\d{2}$/.test(String(response.status))) {
         throw new Error('NestJS server error');

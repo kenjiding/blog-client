@@ -1,0 +1,21 @@
+
+.markdown {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  h1, h2, h3, h4, h5 {
+    margin: 20px 0;
+  }
+
+  p {
+    line-height: 1.8; /* 调整这个值来改变行高 */
+    margin: 10px 0;
+  }
+
+  blockquote {
+    border-left: 6px solid #c6c2c2;
+    margin: 10px 0;
+    padding: 1px 16px;
+    background-color: #efe9e0;
+    color: #666;
+  }
+}

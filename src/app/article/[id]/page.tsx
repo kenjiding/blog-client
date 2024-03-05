@@ -1,12 +1,11 @@
 // "use client"
-import React, { useEffect, useState } from 'react';
-import ReactMarkdown, { Components } from 'react-markdown';
+import React from 'react';
 import styles from './id.module.scss';
 import 'highlight.js/styles/night-owl.css';
 import http from '@/utils/http';
-import rehypeHighlight from 'rehype-highlight';
 import Tags from '@/components/tags';
 import { IArticle } from '@/components/article';
+import MarkdownPreview from '@/components/markdown-preview';
 interface IArticalProps {
   params: {
     id: string
@@ -53,9 +52,7 @@ const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
         </div>
         { articleData.tips ? <p className={styles.tips}>{articleData.tips}</p> : null }
         <div className={styles.preview}>
-          <ReactMarkdown
-            className={styles.markdown}
-            rehypePlugins={[rehypeHighlight]}>{articleData.text}</ReactMarkdown>
+          <MarkdownPreview text={articleData.text}></MarkdownPreview>
         </div>
       </div>
 

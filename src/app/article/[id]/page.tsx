@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import styles from './id.module.scss';
@@ -31,25 +31,27 @@ async function getData(id: any) {
   return await http<IArticle>({ method: 'get', url: getHost(`/article/get/${id}`)});
 }
 
-const MarkdownEditor: React.FC<IArticalProps> = ({ params }) => {
-  const [articleData, setArticleData] = useState<IArticle>({
-    title: '',
-    text: '',
-    createTime: '',
-    views: 0,
-    tips:'',
-    tags: ''
-  });
+const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
+  // const [articleData, setArticleData] = useState<IArticle>({
+  //   title: '',
+  //   text: '',
+  //   createTime: '',
+  //   views: 0,
+  //   tips:'',
+  //   tags: ''
+  // });
   
-  useEffect(() => {
-    init();
-  }, [params.id]);
+  // useEffect(() => {
+    // init();
+  // }, [params.id]);
 
-  const init = async() => {
-    const articleData = await getData(params.id);
-    setArticleData(articleData);
-    counter(params.id);
-  }
+  // const init = async() => {
+  //   const articleData = await getData(params.id);
+  //   setArticleData(articleData);
+  //   counter(params.id);
+  // }
+  const articleData: IArticle = await getData(params.id);
+  counter(params.id);
 
   return (
     <div className={styles.wrapper}>

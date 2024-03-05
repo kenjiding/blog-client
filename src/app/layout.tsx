@@ -4,6 +4,8 @@ import styles from './page.module.scss';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import "./globals.css"; // 全局样式
+import { Suspense } from 'react';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,13 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body>
         <main style={{display: 'flex', height: '100vh'}}>
-          <Summary></Summary>
+          <Suspense fallback={<></>}><Summary></Summary></Suspense>
           <div className={styles.content}>
             <div className={`${styles.title}`}>Interest is the best teacher, keep your passion for learning</div>
             <Header></Header>
-            <div style={{flex: '1'}}>{children}</div>
+            <Suspense fallback={<></>}><div style={{flex: '1'}}>{children}</div></Suspense>
             <Footer></Footer>
           </div>
         </main>

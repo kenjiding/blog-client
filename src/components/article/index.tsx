@@ -1,25 +1,29 @@
-'use client'
 import { useEffect, useRef, useState } from "react";
 import http from "@/utils/http";
 import Image from "next/image";
 import styles from './index.module.scss';
 import Link from "next/link";
 import Tags from "../tags";
-import { getHost } from '@/utils/helper';
 
-export default function ArticleCom() {
-  const [articleData, setArticleData] = useState<any[]>([]);
-  const articleRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await http({method: 'get', url: getHost('/article/get')});
-      setArticleData(res as any[]);
-    }
-    fetchData();
-  }, []);
+export interface IArticle {
+  id: number;
+  title: string;
+  text: string;
+  createTime: string;
+  views: number;
+  tips: string;
+  tags: string;
+}
 
-  return <div ref={articleRef}>
+const fetchData = async () => {
+  return await http.get<IArticle[]>('/article/get');
+}
+
+export default async function ArticleCom() {
+  const articleData = await fetchData();
+
+  return <div>
     <ul style={{padding: '30px 60px 50px 60px'}}>
       {
         articleData.map(item => {
@@ -27,7 +31,7 @@ export default function ArticleCom() {
             <li className={styles.article}>
               <div style={{display: 'flex'}}>
                 <div className={styles.avator}>
-                  <Image alt='' width={200} height={150} src="/images/person.webp"></Image>
+                  <Image alt='' width={200} height={150} src="/images/logo.webp"></Image>
                 </div>
                 <div style={{margin: '0 20px', flex: '1'}}>
                   <div>

@@ -10,16 +10,11 @@ import { NextPage } from 'next';
 import { Input, Button } from 'antd';
 import http from '@/utils/http';
 import { Col, Row, Space } from 'antd';
-import { getHost } from '@/utils/helper';
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 
 async function saveData(data: any) {
-  return await http({
-    method: 'post',
-    url: getHost(`/article/create`),
-    data
-  });
+  return await http.post(`/article/create`, { data });
 }
 
 const MarkdownEditor: NextPage = () => {

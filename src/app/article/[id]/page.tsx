@@ -6,29 +6,19 @@ import 'highlight.js/styles/night-owl.css';
 import http from '@/utils/http';
 import rehypeHighlight from 'rehype-highlight';
 import Tags from '@/components/tags';
-import { getHost } from '@/utils/helper';
-
+import { IArticle } from '@/components/article';
 interface IArticalProps {
   params: {
     id: string
   }
 }
 
-interface IArticle {
-  title: string;
-  text: string;
-  createTime: string;
-  views: number;
-  tips: string;
-  tags: string;
-}
-
 async function counter(id: any) {
-  return await http({ method: 'get', url: getHost(`/article/counter/${id}`)});
+  return await http.get(`/article/counter/${id}`);
 }
 
 async function getData(id: any) {
-  return await http<IArticle>({ method: 'get', url: getHost(`/article/get/${id}`)});
+  return await http.get<IArticle>(`/article/get/${id}`);
 }
 
 const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
@@ -40,7 +30,7 @@ const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
   //   tips:'',
   //   tags: ''
   // });
-  
+
   // useEffect(() => {
     // init();
   // }, [params.id]);

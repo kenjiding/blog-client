@@ -5,7 +5,7 @@ import Card from '@/components/card'
 export default function Summary() {
   return <div className={styles.wrapper}>
     <div className="" style={{textAlign: 'center', marginTop: '50px', height: '150px'}}>
-      <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/person.webp'></Image>
+      <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/logo.webp'></Image>
       <h3 className={styles.summary}>Resume</h3>
     </div>
     <div style={{flex: '1', overflow: 'auto'}}>

@@ -1,62 +1,75 @@
-import axios, {
-  AxiosInstance, 
-  AxiosRequestConfig, 
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from 'axios';
+import { getHost } from "./helper";
 
-// axios.defaults.baseURL = process.env.REACT_APP_API_URL + '/';
-axios.defaults.headers.head['Content-Type'] = 'application/json;chartset=utf-8';
-axios.defaults.timeout = 1000 * 60;
-
-export interface IResponse<T = any> {
-  code: number;
-  message: string;
-  data: T
+interface RequestInit {
+  method?: string;
+  headers?: HeadersInit;
+  body?: BodyInit | null;
+  mode?: RequestMode;
+  credentials?: RequestCredentials;
+  cache?: RequestCache;
+  redirect?: RequestRedirect;
+  referrerPolicy?: ReferrerPolicy;
+  data?: any,
 }
 
-let refreshTokenRquesting = false;
+const PrePath = '/api';
 
-const axiosInstance: AxiosInstance = axios.create({
-  timeout: 10000,
-});
-
-// 请求拦截器
-axiosInstance.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    return config;
-  },
-  (error: any) => {
-    return Promise.reject(error);
-  }
-);
-
-// 响应拦截器
-axiosInstance.interceptors.response.use(
-  (res: AxiosResponse) => {
-    const { data } = res;
-    if (data.code === 500) {
-      return Promise.reject(data);
+function objectToQueryString(obj: Record<string, string | number>): string {
+  const keyValuePairs: string[] = [];
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      const value = obj[key];
+      if (value !== null && value !== undefined) {
+        keyValuePairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(value.toString())}`);
+      }
     }
-    return data.data;
-  },
-  async (err: any) => {
-    const {
-      response: { status, data }
-    } = err;
-    const originalRequest = err.config;
-    return Promise.reject(err.response.data);
   }
-);
+  return keyValuePairs.join('&');
+}
 
-const http = <T>(configs: AxiosRequestConfig): Promise<T> => {
+const request = <T>(url: string, configs: RequestInit): Promise<T> => {
   const { method } = configs;
   if (method === 'get') {
-    configs.params = configs.data;
-    delete configs.data;
+    url += `?${objectToQueryString(configs.data)}`;
+  } else if (method === 'post') {
+    configs.headers = {
+      'Content-Type': 'application/json',
+      ...configs.headers,
+    };
+    configs.body = JSON.stringify(configs.data);
   }
 
-  return axiosInstance.request(configs);
+  delete configs.data;
+
+  return fetch(getHost(PrePath + url), configs).then(response => {
+    if (!response.ok) {
+      if (!/^2\d{2}$/.test(String(response.status))) {
+        throw new Error('NestJS server error');
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    }
+    return response.json().then(data => data.data);
+  });
 };
 
-export default http;
+class Http {
+  constructor() {}
+
+  public static get<T>(url: string, configs?: RequestInit) {
+    return request<T>(url, {
+      ...configs,
+      method: 'get',
+    });
+  }
+
+  public static post<T>(url: string, configs?: RequestInit) {
+    return request<T>(url, {
+      ...configs,
+      method: 'post',
+    });
+  }
+}
+
+
+export default Http;

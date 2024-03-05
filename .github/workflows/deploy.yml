@@ -23,16 +23,13 @@ jobs:
         npm i pnpm -g
         pnpm i
         npm run build
-        cp -r ./.next/static ./.next/standalone/.next/
-        cp -r ./public ./.next/standalone/
-        cp -r ./Dockerfile ./.next/standalone/
 
     - name: Copy standalone directory to a temporary directory
       run: |
-        cp -r .next/standalone ./standalone
+        cp -r ./.next/standalone ./standalone
         cp -r ./.next/static ./standalone/.next/
-        cp -r ./public ./.next/standalone/
-        cp -r ./Dockerfile ./.next/standalone/
+        cp -r ./public ./standalone/
+        cp -r ./Dockerfile ./standalone/
 
     - name: Copy files to EC2
       uses: appleboy/scp-action@master

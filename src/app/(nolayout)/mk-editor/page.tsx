@@ -31,18 +31,21 @@ const MarkdownEditor: NextPage = () => {
   }
 
   return (
-    <div style={{height: '100%', overflow: 'auto'}}>
-      <div style={{padding: '10px 20px'}}>
-        Title:
-        <Input value={form.title} onChange={(e) => setForm({...form, title: e.target.value})} />
-      </div>
-        
-      <Row style={{padding: '0px 20px 20px 20px'}} gutter={16}>
+    <div style={{height: '100%', overflow: 'auto', padding: '10px 20px'}}>
+      <Row style={{padding: '10px 0'}}>
+        <Col span={22}>
+          <Input placeholder='Title 标题' value={form.title} onChange={(e) => setForm({...form, title: e.target.value})} />
+        </Col>
+        <Col span={2} style={{textAlign: 'center'}}>
+          <Button type='primary' onClick={save}>保存</Button>
+        </Col>
+      </Row>
+      <Row style={{padding: '0px 0 20px 0'}} gutter={16}>
         <Col span={12}>
-          Tags:<Input value={form.tags} onChange={(e) => setForm({...form, tags: e.target.value})} />
+          <Input placeholder='tags 标签' value={form.tags} onChange={(e) => setForm({...form, tags: e.target.value})} />
         </Col>
         <Col span={12}>
-          Tips:<Input value={form.tips} onChange={(e) => setForm({...form, tips: e.target.value})} />
+          <Input placeholder='tips 提示' value={form.tips} onChange={(e) => setForm({...form, tips: e.target.value})} />
         </Col>
       </Row>
       <div className={styles['markdown-editor']}>

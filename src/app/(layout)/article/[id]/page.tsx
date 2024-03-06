@@ -31,7 +31,16 @@ const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
         <h1>{articleData.title}</h1>
         <div className={styles.info}>
           <span>views: {articleData.views}</span>
-          <span>Date: {articleData.createTime}</span>
+          <span id='edit-article-button'>Date: {articleData.createTime}</span>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                document.getElementById('edit-article-button').addEventListener('click', function() {
+                  window.location.href = '/editor/' + ${articleData.id};
+                });
+              `,
+            }}
+          />
         </div>
         { articleData.tips ? <p className={styles.tips}>Tips: {articleData.tips}</p> : null }
         <div className={styles.preview}>

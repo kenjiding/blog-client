@@ -16,7 +16,9 @@ export interface IArticle {
 }
 
 const fetchData = async () => {
-  return await http.get<IArticle[]>('/article/get');
+  return await http.get<IArticle[]>('/article/get', {
+    cache: 'no-cache'
+  });
 }
 
 export default async function ArticleCom() {

@@ -1,3 +1,15 @@
+@import 'mixins';
+
+.wrapper {
+  padding: 30px 60px 50px 60px;
+
+  @include screen-adapt('phone') {
+    padding: 5px;
+  }
+  @include screen-adapt('pad') {
+    display: 30px;
+  }
+}
 
 .fixed {
   position: absolute;
@@ -12,6 +24,22 @@
   font-weight: bold;
   color: #333;
   transition: transform 0.1s;
+  margin: 0 0 10px 0;
+  font-size: 25px;
+  font-weight: 600;
+
+  @include screen-adapt('phone') {
+    font-size: 16px;
+  }
+
+  @include ellipsis(2);
+}
+
+.tags {
+  margin: 15px 0;
+  @include screen-adapt('phone') {
+    display: none;
+  }
 }
 
 .article {
@@ -19,6 +47,11 @@
   padding: 25px 25px;
   border-radius: 20px;
   transition: box-shadow 0.5s, opacity 0.5s;
+
+  @include screen-adapt('phone') {
+    padding: 15px;
+    margin: 15px;
+  }
 }
 
 .article:hover {
@@ -55,21 +88,37 @@
   align-items: center;
   width: 200px;
 
+  @include screen-adapt('phone') {
+    width: 120px;
+  }
+
   img {
-    width: 100%;
     object-fit: cover;
     border-radius: 10px;
+    max-width: 100%;
+    height: auto;
   }
 }
 .date {
   color: #6e6e6e;
   font-size: 14px;
   text-align: right;
+
+  @include screen-adapt('phone') {
+    margin: 10px 0;
+    font-size: 12px;
+  }
+
+  @include ellipsis(1);
 }
-.ellipsis {
+.detail {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   -webkit-line-clamp: 2; /* 显示的行数 */
   color: #998585;
+
+  @include screen-adapt('phone') {
+    font-size: 13px;
+  }
 }

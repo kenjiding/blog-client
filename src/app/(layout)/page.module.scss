@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .title {
   width: 100%;
   text-align: center;
@@ -6,6 +8,10 @@
   color: #dedede;
   font-family: Georgia, "hiragino sans gb", stheiti, "wenquanyi micro hei", 微软雅黑, 宋体, serif;
   background-color: #333;
+
+  @include screen-adapt('phone') {
+    font-size: 13px;
+  }
 } 
 
 .content {

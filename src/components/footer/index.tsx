@@ -9,7 +9,7 @@ export default function Footer() {
       <p className={`${styles.inner}`} style={{paddingTop: '0'}}>
         Contact Me: <a href="mailto:kenjiding807@gmail.com" className={styles.active}><i>kenjiding807@gmail.com</i></a>
       </p>
-      <p className={styles['inner']} style={{paddingTop: '0'}}>©2019. Powered by<span className={styles.active}> NextJS </span> & <span className={styles.active}> NestJS</span>.</p>
+      <p className={styles['inner']} style={{paddingTop: '0'}}>©2019. Powered by <span className={styles.active}> AWS EC2 </span> & <span className={styles.active}> NextJS </span> & <span className={styles.active}> NestJS</span>.</p>
     </footer>
 
   )

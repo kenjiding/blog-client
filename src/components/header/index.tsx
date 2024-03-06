@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <header className={styles.header} ref={ref}>
       <div style={{flex: '2'}}>
-        <span>Kenji</span>
+        <span className={styles.logo}>Kenji</span>
       </div>
       {
         <div className={`${styles.sentence} ${visible && styles['sentence-show']}`}>
@@ -38,7 +38,7 @@ const Home = () => {
         </div>
       }
       <nav style={{flex: '3', textAlign: 'right'}}>
-        <Link href="/" className={styles['menu-item']}>Home</Link>
+        <Link href="/" className={`${styles['menu-item']}`}>Home</Link>
         <Link href="/article" className={styles['menu-item']}>Article</Link>
       </nav>
     </header>

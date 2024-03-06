@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .wrapper {
   min-width: 300px;
   max-width: 400px;
@@ -8,6 +10,13 @@
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+
+  @include screen-adapt('phone') {
+    display: none;
+  }
+  @include screen-adapt('pad') {
+    display: none;
+  }
 }
 
 .summary {

@@ -1,5 +1,5 @@
 import { Roboto } from 'next/font/google'
-import "./globals.css"; // 全局样式
+import '@/styles/globals.css'; // 全局样式
 
 const roboto = Roboto({
   weight: '400',

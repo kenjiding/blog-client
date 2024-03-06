@@ -1,0 +1,33 @@
+// scss的map对象
+$screen-type-map: (
+  'phone': (320px, 767px),
+  'pad': (768px, 991px),
+  'notbook': (992px, 1199px),
+  'desktop': (1200px),
+);
+
+@mixin screen-adapt($type) {
+  // 根据$type获取$screen-type-map对象里的内容
+  $bp: map-get($map: $screen-type-map, $key: $type);
+  // 形如 'phone': (320px, 767px) 的 type-of值为 list
+  @if type-of($value: ($bp)) == 'list' {
+    $min: nth($list: $bp, $n: 1);
+    $max: nth($list: $bp, $n: 2);
+    @media (min-width: $min) and (max-width: $max)  {
+      @content;
+    }
+  } @else {
+    @media (min-width: $bp)  {
+      @content;
+    }
+  }
+}
+
+
+@mixin ellipsis($num) {
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from "react";
 import http from "@/utils/http";
 import Image from "next/image";
 import styles from './index.module.scss';
 import Link from "next/link";
 import Tags from "../tags";
-
 
 export interface IArticle {
   id?: number;

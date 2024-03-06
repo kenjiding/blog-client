@@ -1,11 +1,21 @@
+@import 'mixins';
+
 .wrapper {
-  padding: 50px 16%;
+  padding: 50px 11%;
   height: 100%;
   overflow: auto;
+
+  @include screen-adapt('phone') {
+    padding: 15px 15px;
+  }
 
   h1 {
     text-align: center;
     padding: 0 20px 20px 20px;
+
+    @include screen-adapt('phone') {
+      font-size: 20px;
+    }
   }
 }
 

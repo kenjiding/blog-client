@@ -1,4 +1,5 @@
 import { getHost } from "./helper";
+import { message } from 'antd';
 
 interface RequestInit {
   method?: string;
@@ -43,6 +44,7 @@ const request = <T>(url: string, configs: RequestInit): Promise<T> => {
 
   return fetch(getHost(PrePath + url), configs).then(response => {
     if (!response.ok) {
+      message.error('server error');
       if (!/^2\d{2}$/.test(String(response.status))) {
         throw new Error('NestJS server error');
       } else {

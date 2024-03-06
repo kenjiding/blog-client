@@ -6,6 +6,7 @@ import http from '@/utils/http';
 import Tags from '@/components/tags';
 import { IArticle } from '@/components/article';
 import MarkdownPreview from '@/components/markdown-preview';
+
 interface IArticalProps {
   params: {
     id: string
@@ -21,24 +22,6 @@ async function getData(id: any) {
 }
 
 const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
-  // const [articleData, setArticleData] = useState<IArticle>({
-  //   title: '',
-  //   text: '',
-  //   createTime: '',
-  //   views: 0,
-  //   tips:'',
-  //   tags: ''
-  // });
-
-  // useEffect(() => {
-    // init();
-  // }, [params.id]);
-
-  // const init = async() => {
-  //   const articleData = await getData(params.id);
-  //   setArticleData(articleData);
-  //   counter(params.id);
-  // }
   const articleData: IArticle = await getData(params.id);
   counter(params.id);
 
@@ -50,7 +33,7 @@ const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
           <span>views: {articleData.views}</span>
           <span>Date: {articleData.createTime}</span>
         </div>
-        { articleData.tips ? <p className={styles.tips}>{articleData.tips}</p> : null }
+        { articleData.tips ? <p className={styles.tips}>Tips: {articleData.tips}</p> : null }
         <div className={styles.preview}>
           <MarkdownPreview text={articleData.text}></MarkdownPreview>
         </div>

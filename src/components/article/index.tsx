@@ -7,13 +7,14 @@ import Tags from "../tags";
 
 
 export interface IArticle {
-  id: number;
+  id?: number;
   title: string;
   text: string;
-  createTime: string;
+  createTime?: string;
   views: number;
   tips: string;
   tags: string;
+  detial: string;
 }
 
 const fetchData = async () => {

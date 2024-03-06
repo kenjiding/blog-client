@@ -42,7 +42,10 @@ const request = <T>(url: string, configs: RequestInit): Promise<T> => {
 
   delete configs.data;
 
-  return fetch(getHost(PrePath + url), configs).then(response => {
+  return fetch(getHost(PrePath + url), {
+    cache: 'no-cache',
+    ...configs,
+  }).then(response => {
     if (!response.ok) {
       message.error('server error');
       if (!/^2\d{2}$/.test(String(response.status))) {

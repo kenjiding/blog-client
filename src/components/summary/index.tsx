@@ -6,12 +6,12 @@ export default function Summary({
   summaryVisible,
   onClose
 }: {
-  summaryVisible: boolean,
-  onClose: (val: boolean) => void
+  summaryVisible?: boolean,
+  onClose?: (val: boolean) => void
 }) {
   return <div className={`${styles.wrapper} ${summaryVisible ? styles.active : ''}`}>
     <div className={styles['top-action']}>
-      <span onClick={() => onClose(false)}>x</span>
+      <span onClick={() => onClose && onClose(false)}>x</span>
     </div>
     <div className={styles.avator}>
       <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/logo.webp'></Image>

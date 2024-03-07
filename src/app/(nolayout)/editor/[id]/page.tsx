@@ -9,6 +9,7 @@ import http from '@/utils/http';
 import { Col, Row } from 'antd';
 import MarkdownPreview from '@/components/markdown-preview';
 import { IArticle } from '@/components/article';
+import { useRouter } from 'next/navigation';
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 
@@ -30,6 +31,7 @@ const MarkdownEditor = ({params}: {
     views: 0,
     tips: '',
   });
+  const router = useRouter();
 
   async function getData(id: any) {
     const data = await http.get<IArticle>(`/article/get/${id}`);
@@ -45,6 +47,7 @@ const MarkdownEditor = ({params}: {
     try {
       await saveData(form);
       message.success('success!')
+      router.back();
     } finally {
       setLoading(false);
     }

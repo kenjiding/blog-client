@@ -3,7 +3,11 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './index.module.scss';
 
-const Home = () => {
+const Home = ({
+  onLogoClick
+}: {
+  onLogoClick?: () => void
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -30,7 +34,7 @@ const Home = () => {
   return (
     <header className={styles.header} ref={ref}>
       <div style={{flex: '2'}}>
-        <span className={styles.logo}>Kenji</span>
+        <span className={styles.logo} onClick={onLogoClick}>Kenji</span>
       </div>
       {
         <div className={`${styles.sentence} ${visible && styles['sentence-show']}`}>

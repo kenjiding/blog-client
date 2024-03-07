@@ -8,7 +8,7 @@ const Tags: React.FC<FCPropsWithStyle<{
     {
       list.map(item => {
         return <span key={item} style={{
-          marginRight: '15px', 
+          margin: '8px 15px 8px 0', 
           fontSize: '12px',
           borderRadius: '20px',
           backgroundColor: '#d5dfff',

@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 const Home = ({
   onLogoClick
 }: {
-  onLogoClick?: () => void
+  onLogoClick?: (val: any) => void
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -31,10 +31,15 @@ const Home = ({
   }, []);
 
 
+  function logoClick (e: any) {
+    e.stopPropagation();
+    onLogoClick && onLogoClick(true);
+  }
+
   return (
     <header className={styles.header} ref={ref}>
       <div style={{flex: '2'}}>
-        <span className={styles.logo} onClick={onLogoClick}>Kenji</span>
+        <span className={styles.logo} onClick={logoClick}>Kenji</span>
       </div>
       {
         <div className={`${styles.sentence} ${visible && styles['sentence-show']}`}>

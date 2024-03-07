@@ -2,13 +2,22 @@ import Image from "next/image";
 import styles from './index.module.scss';
 import Card from '@/components/card'
 
-export default function Summary() {
-  return <div className={styles.wrapper}>
-    <div className="" style={{textAlign: 'center', marginTop: '50px', height: '150px'}}>
+export default function Summary({
+  summaryVisible,
+  onClose
+}: {
+  summaryVisible: boolean,
+  onClose: (val: boolean) => void
+}) {
+  return <div className={`${styles.wrapper} ${summaryVisible ? styles.active : ''}`}>
+    <div className={styles['top-action']}>
+      <span onClick={() => onClose(false)}>x</span>
+    </div>
+    <div className={styles.avator}>
       <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/logo.webp'></Image>
       <h3 className={styles.summary}>Resume</h3>
     </div>
-    <div style={{flex: '1', overflow: 'auto'}}>
+    <div className={styles.mainly}>
       <Card
         front={(
           <ul className={styles.content}>

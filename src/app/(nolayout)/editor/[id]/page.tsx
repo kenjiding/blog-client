@@ -19,7 +19,6 @@ const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false }
 async function saveData(data: any) {
   const [err, res] = await catchError(http.post(`/article/create`, { data, ignore: true }));
   if (err) {
-    console.log('err: ', err);
     if(err.status === 401) {
       let modalInstance: any = null;
       modalInstance = Modal.info({

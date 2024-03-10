@@ -5,6 +5,18 @@
   gap: 20px;
 }
 
+.loginWrapper {
+  :global {
+    .ant-modal-content {
+      background-color: rgba(0,0,0,0);
+      box-shadow: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
 .editor,
 .preview {
   width: 48%;

@@ -4,17 +4,36 @@ import styles from './index.module.scss';
 import 'simplemde/dist/simplemde.min.css';
 import 'highlight.js/styles/github.css';
 import dynamic from 'next/dynamic';
-import { Input, Button, message } from 'antd';
+import { Input, Button, message, Modal } from 'antd';
 import http from '@/utils/http';
 import { Col, Row } from 'antd';
 import MarkdownPreview from '@/components/markdown-preview';
 import { IArticle } from '@/components/article';
 import { useRouter } from 'next/navigation';
+import { catchError } from '@/utils/helper';
+import Login from '@/components/login';
 
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 
+
 async function saveData(data: any) {
-  return await http.post(`/article/create`, { data });
+  const [err, res] = await catchError(http.post(`/article/create`, { data, ignore: true }));
+  if (err) {
+    console.log('err: ', err);
+    if(err.status === 401) {
+      let modalInstance: any = null;
+      modalInstance = Modal.info({
+        icon: null,
+        maskClosable: true,
+        className: styles.loginWrapper,
+        width: '60%',
+        content: <Login onSuccess={() => modalInstance && modalInstance.update({open: false})}></Login>,
+        footer: null
+      });
+    }
+    return Promise.reject();
+  }
+  return res;
 }
 
 const MarkdownEditor = ({params}: {

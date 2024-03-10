@@ -1,0 +1,29 @@
+
+
+<script>
+
+var minimumRounds = function(tasks) {
+    let one = 0;
+    let two = 1;
+    const list = new Set();
+    let contin = true;
+    debugger
+    while(two <= tasks.length) {
+        if(tasks[one] === tasks[two]) {
+            list.add(one);
+            list.add(two);
+        }
+        if(list.size >= 2) {
+          Array.from(list).forEach(item => tasks.splice(item, 1))
+          if(!contin) two = one;
+        }
+        one = two;
+        two += 1;
+    }
+};
+
+const t = [1,2,3]
+// const t = [2,2,3,3,2,4,4,4,4,4]
+
+minimumRounds(t);
+</script>

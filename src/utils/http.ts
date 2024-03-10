@@ -1,9 +1,12 @@
 import { getHost } from "./helper";
 import { message } from 'antd';
+import { useUserStore } from '@/store/user';
 
 interface RequestInit {
   method?: string;
-  headers?: HeadersInit;
+  headers?: {
+    [key: string]: string;
+  };
   body?: BodyInit | null;
   mode?: RequestMode;
   credentials?: RequestCredentials;
@@ -11,6 +14,7 @@ interface RequestInit {
   redirect?: RequestRedirect;
   referrerPolicy?: ReferrerPolicy;
   data?: any,
+  ignore?: boolean
 }
 
 const PrePath = '/api';
@@ -28,51 +32,58 @@ function objectToQueryString(obj: Record<string, string | number>): string {
   return keyValuePairs.join('&');
 }
 
-const request = <T>(url: string, configs: RequestInit): Promise<T> => {
-  const { method } = configs;
-  if (method === 'get') {
-    url += `?${objectToQueryString(configs.data)}`;
-  } else if (method === 'post') {
-    configs.headers = {
-      'Content-Type': 'application/json',
-      ...configs.headers,
-    };
-    configs.body = JSON.stringify(configs.data);
-  }
-
-  delete configs.data;
-
-  return fetch(getHost(PrePath + url), {
-    cache: 'no-cache',
-    ...configs,
-  }).then(response => {
-    if (!response.ok) {
-      message.error('server error');
-      if (!/^2\d{2}$/.test(String(response.status))) {
-        throw new Error('NestJS server error');
-      } else {
-        throw new Error('Network response was not ok');
-      }
-    }
-    return response.json().then(data => data.data);
-  });
-};
-
 class Http {
   constructor() {}
+  public static request<T>(url: string, configs: RequestInit): Promise<T> {
+    if(!configs.headers) configs.headers = {};
+    const state = useUserStore.getState();
+    if(state.userData?.access_token) {
+      configs.headers.Authorization = `Bearer ${state.userData?.access_token}`;
+    }
+
+    const method = configs.method?.toLowerCase();
+    if (method === 'get') {
+      url += `?${objectToQueryString(configs.data)}`;
+    } else if (method === 'post') {
+      configs.headers = {
+        'Content-Type': 'application/json',
+        ...configs.headers,
+      };
+      configs.body = JSON.stringify(configs.data);
+    }
+  
+    delete configs.data;
+  
+    return fetch(getHost(PrePath + url), {
+      cache: 'no-cache',
+      ...configs,
+    }).then(response => {
+      if (!response.ok) {
+        !configs.ignore && message.error('server error');
+        return Promise.reject({
+          ok: response.ok,
+          status: response.status,
+          statusText: response.statusText,
+        });
+      }
+      return response.json().then(data => data.data);
+    });
+  };
 
   public static get<T>(url: string, configs?: RequestInit) {
-    return request<T>(url, {
+    const requestConfigs: RequestInit = {
+      method: 'GET',
       ...configs,
-      method: 'get',
-    });
+    };
+    return Http.request<T>(url, requestConfigs);
   }
 
   public static post<T>(url: string, configs?: RequestInit) {
-    return request<T>(url, {
+    const requestConfigs: RequestInit = {
+      method: 'POST',
       ...configs,
-      method: 'post',
-    });
+    };
+    return Http.request<T>(url, requestConfigs);
   }
 }
 

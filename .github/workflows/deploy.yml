@@ -34,7 +34,7 @@ jobs:
     - name: Copy files to EC2
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.AMAZON_EC2_HOST }}
+        host: ${{ secrets.PUBLIC_EC2_HOST }}
         username: ${{ secrets.AMAZON_EC2_NAME }}
         key: ${{ secrets.AMAZON_SECRET_KEY }}
         source: ./standalone/* # 需要上传的文件
@@ -43,7 +43,7 @@ jobs:
     - name: shell EC2
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.AMAZON_EC2_HOST }}
+        host: ${{ secrets.PUBLIC_EC2_HOST }}
         username: ${{ secrets.AMAZON_EC2_NAME }}
         key: ${{ secrets.AMAZON_SECRET_KEY }}
         script: |

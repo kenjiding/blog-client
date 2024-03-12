@@ -23,6 +23,7 @@ jobs:
         npm i pnpm -g
         pnpm i --no-lockfile
         npm run build
+        echo "Token is ${{ secrets.PUBLIC_EC2_HOST }}"
 
     - name: Copy standalone directory to a temporary directory
       run: |

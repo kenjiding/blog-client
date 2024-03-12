@@ -1,4 +1,4 @@
-
+import { get } from 'lodash-es';
 /**
  * @param { Promise } promise
  * @param { Object= } errorExt - Additional Information you can pass to the err object
@@ -24,6 +24,24 @@ export function catchError<T, U extends IFetchRes> (
 }
 
 export const getHost = (path?: string) => {
-  const host = process.env.NEXT_PUBLIC_SERVER_HOST;
+  const host = process.env.DOCKER_SERVER_HOST || process.env.NEXT_PUBLIC_SERVER_HOST;
   return path ? `${host}${path}` : `${host}`;
+}
+
+
+export function localStorageGetter(name: string, key?: string) {
+  try {
+    const storage = localStorage.getItem(name);
+    if (!storage) return '';
+    const formatStorage = JSON.parse(storage);
+    return key ? get(formatStorage, key) : formatStorage;
+  } catch(e) {
+  }
+}
+
+export function localStorageSetter<T>(name: string, data: T) {
+  try {
+    localStorage.setItem(name, JSON.stringify(data));
+  } catch(e) {
+  }
 }

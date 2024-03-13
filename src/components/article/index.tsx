@@ -39,8 +39,8 @@ export default async function ArticleCom() {
                   <i className={styles.detail}>{item.text?.substring(0, 300)}</i>
                   <div className={styles.tags}><Tags tags={item.tags}></Tags></div>
                   <p className={styles.date}>
-                    <span style={{float: 'left',fontSize: '13px', color: '#827e7e'}}>views: {item.views}</span>
-                    <span style={{float: 'right',fontSize: '13px', color: '#827e7e'}}>创建时间：{item.createTime}</span>
+                    <span style={{fontSize: '13px', color: '#827e7e'}}>views: {item.views}</span>
+                    <span style={{fontSize: '13px', color: '#827e7e', textAlign: 'right'}}>创建时间：{item.createTime}</span>
                   </p>
                 </div>
               </div>

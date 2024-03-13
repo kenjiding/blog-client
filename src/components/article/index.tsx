@@ -27,9 +27,9 @@ export default async function ArticleCom() {
   return <div>
     <ul className={styles.wrapper}>
       {
-        articleData.map(item => {
+        articleData.map((item, index) => {
           return <Link href={`/article/${item.id}`} key={item.id}>
-            <li className={styles.article}>
+            <li className={styles.article} style={{'--i': index}}>
               <div style={{display: 'flex'}}>
                 <div className={styles.avator}>
                   <Image width="150" height="150" alt='' src="/images/logo.webp"></Image>

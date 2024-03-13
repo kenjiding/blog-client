@@ -47,10 +47,21 @@
   padding: 25px 25px;
   border-radius: 20px;
   transition: box-shadow 0.5s, opacity 0.5s;
+  opacity: 0;
+  transform: translateX(500px);
+  animation: slideIn 0.6s forwards;
+  animation-delay: calc(0.4s * var(--i));
 
   @include screen-adapt('phone') {
     padding: 15px;
     margin: 15px;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

@@ -30,13 +30,13 @@ export default async function ArticleCom() {
         articleData.map((item, index) => {
           return <Link href={`/article/${item.id}`} key={item.id}>
             <li className={styles.article} style={{'--i': index} as any}>
+              <h2 className={styles.shaket}>{item.title}</h2>
               <div style={{display: 'flex'}}>
                 <div className={styles.avator}>
-                  <Image width="150" height="150" alt='' src="/images/logo.webp"></Image>
+                  <Image width="130" height="130" alt='' src="/images/logo.webp"></Image>
                 </div>
                 <div style={{margin: '0 20px', flex: '1'}}>
                   <div>
-                    <span className={styles.shaket}>{item.title}</span>
                     <span style={{float: 'right', fontSize: '13px', color: '#827e7e'}}>views: {item.views}</span>
                   </div>
                   <i className={styles.detail}>{item.text?.substring(0, 300)}</i>

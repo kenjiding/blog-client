@@ -36,12 +36,12 @@ export default async function ArticleCom() {
                   <Image width="130" height="130" alt='' src="/images/logo.webp"></Image>
                 </div>
                 <div style={{margin: '0 20px', flex: '1'}}>
-                  <div>
-                    <span style={{float: 'right', fontSize: '13px', color: '#827e7e'}}>views: {item.views}</span>
-                  </div>
                   <i className={styles.detail}>{item.text?.substring(0, 300)}</i>
                   <div className={styles.tags}><Tags tags={item.tags}></Tags></div>
-                  <p className={styles.date}>创建时间：{item.createTime}</p>
+                  <p className={styles.date}>
+                    <span style={{float: 'left',fontSize: '13px', color: '#827e7e'}}>views: {item.views}</span>
+                    <span style={{float: 'right',fontSize: '13px', color: '#827e7e'}}>创建时间：{item.createTime}</span>
+                  </p>
                 </div>
               </div>
             </li>

@@ -30,7 +30,7 @@
   padding: 0 0 15px 30px;
 
   @include screen-adapt('phone') {
-    font-size: 16px;
+    font-size: 18px;
     padding: 0 0 10px 0;
     display: block;
   }
@@ -117,11 +117,14 @@
 .date {
   color: #6e6e6e;
   font-size: 14px;
-  text-align: right;
 
   @include screen-adapt('phone') {
     margin: 10px 0;
     font-size: 12px;
+
+    span {
+      margin: 7px 0;
+    }
   }
 
   @include ellipsis(1);

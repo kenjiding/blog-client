@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './index.module.scss';
+import { isMobile } from '@/utils/helper';
 
 const Home = ({
   onLogoClick
@@ -32,6 +33,7 @@ const Home = ({
 
 
   function logoClick (e: any) {
+    if(!isMobile()) return;
     e.stopPropagation();
     onLogoClick && onLogoClick(true);
   }

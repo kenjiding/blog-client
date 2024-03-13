@@ -45,3 +45,8 @@ export function localStorageSetter<T>(name: string, data: T) {
   } catch(e) {
   }
 }
+
+export function isMobile() {
+  const ua = navigator.userAgent;
+  return /Mobi|Android|iPhone/i.test(ua);
+}

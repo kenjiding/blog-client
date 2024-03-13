@@ -57,13 +57,14 @@ class Http {
     return fetch(getHost(PrePath + url), {
       cache: 'no-cache',
       ...configs,
-    }).then(response => {
+    }).then(async response => {
       if (!response.ok) {
-        !configs.ignore && message.error('server error');
+        const errorData = await response.json();
+        !configs.ignore && message.error(errorData.message);
         return Promise.reject({
           ok: response.ok,
-          status: response.status,
-          statusText: response.statusText,
+          status: errorData.statusCode,
+          statusText: errorData.message,
         });
       }
       return response.json().then(data => data.data);

@@ -1,35 +1,33 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
-import { localStorageGetter, localStorageSetter } from '@/utils/helper';
+import { persist } from 'zustand/middleware';
 
 interface IUserData {
   access_token: string;
 }
 
 interface IUserStore {
-  userData: IUserData,
-  updateUser: (data: any) => void,
-  removeUser: () => void,
-  updateUserName: (username: string) => void,
+  userData: IUserData;
+  updateUser: (data: any) => void;
+  removeUser: () => void;
+  updateUserName: (username: string) => void;
 }
 
 const defaultUserData: () => IUserData = () => {
-  const userData = localStorageGetter('user_data');
   return {
-    ...userData
+    access_token: '',
   };
-}
+};
 
 export const useUserStore = create<IUserStore>()(
-  immer(
-    (set) => ({
+  persist(
+    immer((set) => ({
       userData: defaultUserData(),
       updateUser: (data) => set((state) => {
         const temp = {
           ...state.userData,
-          ...data
+          ...data,
         };
-        localStorageSetter('user_data', JSON.stringify(temp));
         state.userData = temp;
       }),
       removeUser: () => set((state) => {
@@ -38,7 +36,9 @@ export const useUserStore = create<IUserStore>()(
       updateUserName: (username: string) => set((state) => {
         // state.user.username = username;
       }),
-    }),
+    })),
+    {
+      name: 'user_data',
+    }
   )
 );
-

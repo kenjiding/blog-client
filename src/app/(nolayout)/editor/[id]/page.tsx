@@ -65,7 +65,7 @@ const MarkdownEditor = ({params}: {
     try {
       await saveData(form);
       message.success('success!')
-      router.back();
+      router.push(`/article/${params.id}`);
     } finally {
       setLoading(false);
     }

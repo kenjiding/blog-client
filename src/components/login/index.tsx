@@ -4,6 +4,7 @@ import styles from './login.module.scss';
 import http from '@/utils/http';
 import { useState } from 'react';
 import { useUserStore } from '@/store/user';
+import { message } from 'antd';
 
 export default function Login({
   onSuccess
@@ -18,7 +19,10 @@ export default function Login({
 
   async function login(data: any) {
     const [err, res] = await catchError(http.post<{access_token: string}>(`/auth/login`, { data, ignore: true }));
-    if(err) return Promise.reject(err);
+    if(err) {
+      message.error(err.statusText)
+      return Promise.reject(err);
+    }
     onSuccess && onSuccess();
     return updateUser({
       access_token: res.access_token,

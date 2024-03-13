@@ -32,7 +32,7 @@ export default async function ArticleCom() {
             <li className={styles.article}>
               <div style={{display: 'flex'}}>
                 <div className={styles.avator}>
-                  <Image alt='' src="/images/logo.webp"></Image>
+                  <Image width="150" height="150" alt='' src="/images/logo.webp"></Image>
                 </div>
                 <div style={{margin: '0 20px', flex: '1'}}>
                   <div>

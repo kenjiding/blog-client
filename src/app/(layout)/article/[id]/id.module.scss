@@ -37,6 +37,10 @@
   color: #7c7979;
   font-size: 13px;
   padding: 0 20px;
+
+  @include screen-adapt('phone') {
+    margin: 15px 0 20px 0;
+  }
 }
 
 .markdown {

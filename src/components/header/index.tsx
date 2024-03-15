@@ -32,11 +32,11 @@ const Home = ({
   }, []);
 
 
-  const logoClick = detectDevice((e: any) => {
+  const logoClick = (e: any) => {
     // if(!isMobile()) return;
     e.stopPropagation();
     onLogoClick && onLogoClick(true);
-  }, [DeviceType.Pad, DeviceType.Mobile])
+  };
 
   return (
     <header className={styles.header} ref={ref}>

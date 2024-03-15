@@ -53,7 +53,7 @@ export function localStorageSetter<T>(name: string, data: T) {
 }
 
 export function detectDevice(fn: (data: any) => void, deps: DeviceType[]) {
-  const ua = navigator.userAgent;
+  const ua = 'navigator.userAgent';
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
   const isTablet = /iPad|Tablet|Android/i.test(ua) && !/Mobile/i.test(ua);

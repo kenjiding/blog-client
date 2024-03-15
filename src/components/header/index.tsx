@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './index.module.scss';
-import { isMobile } from '@/utils/helper';
+import { detectDevice, DeviceType } from '@/utils/helper';
 
 const Home = ({
   onLogoClick
@@ -32,11 +32,11 @@ const Home = ({
   }, []);
 
 
-  function logoClick (e: any) {
-    if(!isMobile()) return;
+  const logoClick = detectDevice((e: any) => {
+    // if(!isMobile()) return;
     e.stopPropagation();
     onLogoClick && onLogoClick(true);
-  }
+  }, [DeviceType.Pad, DeviceType.Mobile])
 
   return (
     <header className={styles.header} ref={ref}>

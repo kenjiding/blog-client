@@ -1,4 +1,10 @@
 import { get } from 'lodash-es';
+
+export enum DeviceType {
+  Mobile = 'Mobile',
+  Pad = 'Pad',
+  Desktop = 'Desktop'
+}
 /**
  * @param { Promise } promise
  * @param { Object= } errorExt - Additional Information you can pass to the err object
@@ -46,7 +52,19 @@ export function localStorageSetter<T>(name: string, data: T) {
   }
 }
 
-export function isMobile() {
+export function detectDevice(fn: (data: any) => void, deps: DeviceType[]) {
   const ua = navigator.userAgent;
-  return /Mobi|Android|iPhone/i.test(ua);
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+  const isTablet = /iPad|Tablet|Android/i.test(ua) && !/Mobile/i.test(ua);
+  const isDesktop = !isMobile && !isTablet;
+
+  if(isMobile && deps.includes(DeviceType.Mobile)) {
+    return fn;
+  } else if(isTablet && deps.includes(DeviceType.Pad)) {
+    return fn;
+  } else if(isDesktop && deps.includes(DeviceType.Desktop)) {
+    return fn;
+  }
+  return () => {};
 }

@@ -45,16 +45,15 @@ class Http {
     if (method === 'get') {
       url += `?${objectToQueryString(configs.data)}`;
     } else if (method === 'post') {
-      configs.headers = {
-        'Content-Type': 'application/json',
-        ...configs.headers,
-      };
-      configs.body = JSON.stringify(configs.data);
+      if(!configs.body) {
+        configs.headers['Content-Type'] = 'application/json';
+        configs.body = JSON.stringify(configs.data);
+      }
     }
   
     delete configs.data;
   
-    return fetch(getHost(PrePath + url), {
+    return fetch(PrePath + url, {
       cache: 'no-cache',
       ...configs,
     }).then(async response => {

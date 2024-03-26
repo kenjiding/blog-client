@@ -10,6 +10,14 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:3008/api/:path*' // 转发到另一个端口
+      },
+    ]
+  },
 };
 
 export default nextConfig;

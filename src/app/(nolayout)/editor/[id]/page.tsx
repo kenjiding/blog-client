@@ -1,22 +1,23 @@
 'use client'
-import React, { useEffect, useState } from 'react';
-import styles from './index.module.scss';
-import 'simplemde/dist/simplemde.min.css';
-import 'highlight.js/styles/github.css';
+import React, { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Input, Button, message, Modal } from 'antd';
 import http from '@/utils/http';
 import { Col, Row } from 'antd';
-import MarkdownPreview from '@/components/markdown-preview';
 import { IArticle } from '@/components/article';
 import { useRouter } from 'next/navigation';
 import { catchError } from '@/utils/helper';
 import Login from '@/components/login';
+import styles from './index.module.scss';
+import MarkdownIt from 'markdown-it';
+import 'react-markdown-editor-lite/lib/index.css';
 
-const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false });
+const mdParser = new MarkdownIt();
+const MdEditor = dynamic(() => import('react-markdown-editor-lite'), {
+  ssr: false,
+});
 
-
-async function saveData(data: any) {
+async function saveData(data: IArticle) {
   const [err, res] = await catchError(http.post(`/article/create`, { data, ignore: true }));
   if (err) {
     if(err.status === 401) {
@@ -41,6 +42,7 @@ const MarkdownEditor = ({params}: {
   }
 }) => {
   const [loading, setLoading] = useState(false);
+  const editorRef = useRef(null); // 创建一个引用
   const [form, setForm] = useState<IArticle>({
     text: '',
     title: '',
@@ -51,7 +53,7 @@ const MarkdownEditor = ({params}: {
   });
   const router = useRouter();
 
-  async function getData(id: any) {
+  async function getData(id: number) {
     const data = await http.get<IArticle>(`/article/get/${id}`);
     setForm(data);
   }
@@ -59,6 +61,21 @@ const MarkdownEditor = ({params}: {
   useEffect(() => {
     params.id && getData(params.id);
   }, [params.id]);
+
+  const imageUploadFunction = (file: File, callback: (url: string) => void) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    http.post(`/file/upload`, {
+      body: formData,
+    })
+    .then((data: any) => {
+      callback(process.env.NEXT_PUBLIC_SERVER_HOST + data.imageUrl); // 调用 onSuccess 并传入图片 URL
+    })
+    .catch((error) => {
+      console.log('error: ', error);
+    });
+  };
 
   const save = async () => {
     setLoading(true);
@@ -70,6 +87,10 @@ const MarkdownEditor = ({params}: {
       setLoading(false);
     }
   }
+
+  const handleEditorChange = ({ text }: { text: string }) => {
+    setForm({...form, text})
+  };
 
   return (
     <div style={{height: '100%', overflow: 'auto', padding: '10px 20px'}}>
@@ -90,12 +111,13 @@ const MarkdownEditor = ({params}: {
         </Col>
       </Row>
       <div className={styles['markdown-editor']}>
-        <div className={styles.editor}>
-          <SimpleMDE value={form.text} onChange={(val) => setForm({...form, text: val})} />
-        </div>
-        <div className={styles.preview}>
-          <MarkdownPreview text={form.text}></MarkdownPreview>
-        </div>
+        <MdEditor
+          value={form.text}
+          style={{ height: '100%', width: '100%' }}
+          renderHTML={(text: string) => mdParser.render(text)}
+          onChange={handleEditorChange}
+          onImageUpload={imageUploadFunction}
+        />
       </div>
       <div style={{margin: '50px 30px 20px 30px', textAlign: 'center'}}>
         <Button loading={loading} type='primary' onClick={save}>{params.id ? '编辑' : '新增'}</Button>

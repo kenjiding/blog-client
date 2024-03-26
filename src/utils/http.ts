@@ -53,7 +53,7 @@ class Http {
   
     delete configs.data;
   
-    return fetch(PrePath + url, {
+    return fetch(getHost(PrePath + url), {
       cache: 'no-cache',
       ...configs,
     }).then(async response => {

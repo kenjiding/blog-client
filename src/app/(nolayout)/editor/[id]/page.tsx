@@ -112,6 +112,7 @@ const MarkdownEditor = ({params}: {
       </Row>
       <div className={styles['markdown-editor']}>
         <MdEditor
+          className={styles.markdown}
           value={form.text}
           style={{ height: '100%', width: '100%' }}
           renderHTML={(text: string) => mdParser.render(text)}

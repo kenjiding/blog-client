@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from './index.module.scss';
 import Card from '@/components/card'
+import Link from "next/link";
 
 export default function Summary({
   summaryVisible,
@@ -13,10 +14,12 @@ export default function Summary({
     <div className={styles['top-action']}>
       <span onClick={() => onClose && onClose(false)}>x</span>
     </div>
-    <div className={styles.avator}>
-      <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/logo.webp'></Image>
-      <h3 className={styles.summary}>Resume</h3>
-    </div>
+    <Link href='/resumes'>
+      <div className={styles.avator}>
+        <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/logo.webp'></Image>
+        <h3 className={styles.summary}>Resume</h3>
+      </div>
+    </Link>
     <div className={styles.mainly}>
       <Card
         front={(

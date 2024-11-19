@@ -24,6 +24,7 @@ async function getData(id: any) {
 
 const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
   const articleData: IArticle = await getData(params.id);
+  console.log('articleData: ', 111);
   counter(params.id);
 
   return (

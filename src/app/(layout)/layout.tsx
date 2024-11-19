@@ -15,7 +15,7 @@ export default function RootLayout({
 
   return (
     <main style={{display: 'flex', height: '100vh'}}>
-      <Suspense fallback={<></>}><Summary onClose={setSummary} summaryVisible={summaryVisible}></Summary></Suspense>
+      <Suspense fallback={<>loading</>}><Summary onClose={setSummary} summaryVisible={summaryVisible}></Summary></Suspense>
       <div className={styles.content}>
         <div className={`${styles.title}`}>Interest is the best teacher, keep your passion for learning</div>
         <Header onLogoClick={setSummary}></Header>

@@ -40,7 +40,7 @@ export function localStorageGetter(name: string, key?: string) {
     const storage = localStorage.getItem(name);
     if (!storage) return '';
     const formatStorage = JSON.parse(storage);
-    return key ? get(formatStorage, key) : formatStorage;
+    return key ? formatStorage[key] : formatStorage;
   } catch(e) {
   }
 }

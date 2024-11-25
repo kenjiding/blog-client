@@ -19,12 +19,15 @@ async function counter(id: any) {
 }
 
 async function getData(id: any) {
-  return await http.get<IArticle>(`/article/get/${id}`);
+  return await http.get<IArticle>(`/article/get/${id}`, {
+    next: {
+      revalidate: 60 * 60 * 24 * 7
+    }
+  });
 }
 
 const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
   const articleData: IArticle = await getData(params.id);
-  console.log('articleData: ', 111);
   counter(params.id);
 
   return (

@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "PORT=4000 NODE_ENV=development next dev",
     "build": "NODE_ENV=production next build",
-    "start": "next start",
+    "dev": "PORT=4000 NODE_ENV=development next dev",
     "lint": "next lint",
+    "start": "next start",
     "test": "jest",
     "test:w": "jest --watch"
   },
@@ -24,6 +24,7 @@
     "rehype-highlight": "^7.0.0",
     "remark-gfm": "^4.0.0",
     "sass": "^1.71.1",
+    "sst": "3.3.22",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
@@ -44,8 +45,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "npm": "^10.8.3",
     "sass": "^1.71.1",
-    "serverless-layers": "^2.8.5",
-    "serverless-nextjs-plugin": "2.5.2-alpha.0",
     "ts-node": "^10.9.2",
     "typescript": "^5"
   }

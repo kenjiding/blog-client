@@ -30,7 +30,7 @@ export function catchError<T, U extends IFetchRes> (
 }
 
 export const getHost = (path?: string) => {
-  const host = process.env.DOCKER_SERVER_HOST || process.env.NEXT_PUBLIC_SERVER_HOST;
+  const host = process.env.DOCKER_SERVER_HOST || process.env.NEXT_PUBLIC_SERVER_HOST || '';
   return path ? `${host}${path}` : `${host}`;
 }
 

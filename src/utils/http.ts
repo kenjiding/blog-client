@@ -14,7 +14,8 @@ interface RequestInit {
   redirect?: RequestRedirect;
   referrerPolicy?: ReferrerPolicy;
   data?: any,
-  ignore?: boolean
+  ignore?: boolean,
+  next?: any
 }
 
 const PrePath = '/api';
@@ -52,9 +53,10 @@ class Http {
     }
   
     delete configs.data;
+    console.log('config900000s: ', configs);
   
     return fetch(getHost(PrePath + url), {
-      cache: 'no-cache',
+      // cache: 'no-cache',
       ...configs,
     }).then(async response => {
       if (!response.ok) {
@@ -71,18 +73,18 @@ class Http {
   };
 
   public static get<T>(url: string, configs?: RequestInit) {
-    const requestConfigs: RequestInit = {
+    const requestConfigs = {
       method: 'GET',
       ...configs,
-    };
+    } as RequestInit;
     return Http.request<T>(url, requestConfigs);
   }
 
   public static post<T>(url: string, configs?: RequestInit) {
-    const requestConfigs: RequestInit = {
+    const requestConfigs = {
       method: 'POST',
       ...configs,
-    };
+    } as RequestInit;
     return Http.request<T>(url, requestConfigs);
   }
 }

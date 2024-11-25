@@ -24,7 +24,7 @@ export default function MarkdownPreview({ text }: {
     rehypePlugins={[rehypeHighlight, remarkGfm]}
     components={{
       img: (props: any) => {
-        return <img {...props} style={{ maxWidth: '100%'}} />
+        return <img {...props} style={{ maxWidth: '100%'}} alt='' />
       },
       input: ({ checked }) => (
         <span style={{ color: checked ? 'green' : 'inherit' }}>

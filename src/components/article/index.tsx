@@ -17,7 +17,9 @@ export interface IArticle {
 
 const fetchData = async () => {
   return await http.get<IArticle[]>('/article/get', {
-    cache: 'no-cache'
+    next: {
+      revalidate: 60 * 60 * 24 * 7
+    },
   });
 }
 

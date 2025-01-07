@@ -33,7 +33,7 @@ const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
   return (
     <div className={styles.wrapper}>
       <div className='prose'>
-        <h1>{articleData.title}</h1>
+        <h1 className='text-4xl'>{articleData.title}</h1>
         <div className={styles.info}>
           <span>views: {articleData.views}<Link href={`/editor/${params.id}`}><i style={{marginLeft: '10px', color: '#4577b9'}}>edit</i></Link></span>
           <span>Date: {articleData.createTime}</span>

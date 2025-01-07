@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Clock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .clock {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .timezone {
+      font-size: 1.5rem;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .location {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .time {
+      font-size: 1.8rem;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>World Clock</h1>
+    <div class="clock" id="clockContainer">
+      <!-- Timezones will be dynamically added here -->
+    </div>
+  </div>
+
+  <script>
+    // Define the timezones and their locations
+    const timezones = {
+      Adelaide: 'Australia/Adelaide',
+      London: 'Europe/London',
+      India: 'Asia/Kolkata',
+      SouthAfrica: 'Africa/Johannesburg',
+      Beijing: 'Asia/Shanghai' // Adding Beijing time zone
+    };
+
+    const clockContainer = document.getElementById('clockContainer');
+
+    // Helper function to get the current time in a timezone
+    function getTimeInTimezone(timezone) {
+      const options = {
+        timeZone: timezone,
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      };
+      const formatter = new Intl.DateTimeFormat('en-US', options);
+      return formatter.format(new Date());
+    }
+
+    // Function to update all clocks
+    function updateClocks() {
+      clockContainer.innerHTML = ''; // Clear the container
+      for (const [location, timezone] of Object.entries(timezones)) {
+        const time = getTimeInTimezone(timezone);
+
+        // Create clock element
+        const clockElement = document.createElement('div');
+        clockElement.classList.add('timezone');
+
+        clockElement.innerHTML = `
+                    <div class="location">${location}</div>
+                    <div class="time">${time}</div>
+                `;
+        clockContainer.appendChild(clockElement);
+      }
+    }
+
+    // Update clocks every second
+    setInterval(updateClocks, 1000);
+
+    // Initialize clocks on page load
+    updateClocks();
+  </script>
+</body>
+
+</html>

@@ -14,19 +14,17 @@ export default function Summary({
     <div className={styles['top-action']}>
       <span onClick={() => onClose && onClose(false)}>x</span>
     </div>
-    <Link href='/resumes'>
-      <div className={styles.avator}>
-        <Image className={styles.imageAvator} alt='blog' width={150} height={150} src='/images/logo.webp'></Image>
-        <h3 className={styles.summary}>Resume</h3>
-      </div>
-    </Link>
+    <div className={styles.clock}>
+      <animated-clock-com className={styles['clock-content']}></animated-clock-com>
+    </div>
+    <h3 className={styles.summary}>Resume</h3>
     <div className={styles.mainly}>
       <Card
         front={(
           <ul className={styles.content}>
             <li>Focused on React, Vue, Next.js, and front-end engineering;</li>
             <li>Familiar with Node.js; occasionally works on Spring projects. </li>
-            <li>Familiar with AWS EC2 deployment, serverless business, Docker, CI/CD, Git Action, and Git Flow workflows.</li>
+            <li>Familiar with AWS EC2, Ecs, lambda deployment, Docker, CI/CD, Git Action, and Git Flow workflows.</li>
           </ul>
         )}
         back={(

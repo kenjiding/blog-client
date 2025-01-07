@@ -9,7 +9,7 @@ const CodeBlock = (data: any) => {
   const isCodeBlock = data.className && typeof data.children !== 'string';
   return (
     isCodeBlock ? 
-      <pre>
+      <pre className='bg-gray-900'>
         <code {...data}></code>
       </pre> :
       <code {...data} className={styles.code}></code>

@@ -68,3 +68,21 @@ export function detectDevice(fn: (data: any) => void, deps: DeviceType[]) {
   }
   return () => {};
 }
+
+export function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+export function getGitHubYears(joinYear: number | undefined): number[] {
+  if (!joinYear) return [];
+
+  const currentYear = new Date().getFullYear();
+  const duration = currentYear - joinYear + 1;
+  const years = Array.from({ length: duration }, (_year, i) => currentYear - i);
+  return years;
+}
+

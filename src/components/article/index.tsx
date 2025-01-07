@@ -13,6 +13,8 @@ export interface IArticle {
   tips: string;
   tags: string;
   detial: string;
+  image: string;
+  type: string;
 }
 
 const fetchData = async () => {
@@ -26,8 +28,8 @@ const fetchData = async () => {
 export default async function ArticleCom() {
   const articleData = await fetchData();
 
-  return <div>
-    <ul className={styles.wrapper}>
+  return <div className="flex-auto">
+    <ul className={`${styles.wrapper}`}>
       {
         articleData.map((item, index) => {
           return <Link href={`/article/${item.id}`} key={item.id}>
@@ -35,7 +37,7 @@ export default async function ArticleCom() {
               <h2 className={styles.shaket}>{item.title}</h2>
               <div style={{display: 'flex'}}>
                 <div className={styles.avator}>
-                  <Image width="130" height="130" alt='' src="/images/logo.webp"></Image>
+                  <Image width="200" height="200" alt='' src={item.image || "/images/logo.png"}></Image>
                 </div>
                 <div style={{margin: '0 20px', flex: '1'}}>
                   <i className={styles.detail}>{item.text?.substring(0, 300)}</i>

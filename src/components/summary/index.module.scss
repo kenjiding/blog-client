@@ -59,7 +59,8 @@
   text-align: center;
   height: 15px;
   width: 100%;
-  height: auto;
+  height: 300px;
+
 
   @include screen-adapt('phone') {
     transition: opacity 0.6s ease-out;
@@ -85,9 +86,20 @@
   }
 }
 
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100px;
+  transform: scale(0.55);
+  transform-origin: center;
+}
+
 .mainly {
   flex: 1;
   overflow: auto;
+
   @include screen-adapt('phone') {
     transition: opacity 0.6s ease-out;
     opacity: 0;
@@ -99,16 +111,18 @@
   text-align: center;
   font-size: 25px;
   animation: swing 2s infinite;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 @keyframes rotateImgY {
   0% {
     transform: rotateY(0deg);
   }
+
   25% {
     transform: rotateY(360deg);
   }
+
   100% {
     transform: rotateY(360deg);
   }
@@ -124,6 +138,7 @@
   &:hover {
     animation: avatorRotate 2s linear infinite;
   }
+
   // animation: rotateImgY 4s linear infinite;
 }
 
@@ -131,6 +146,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -157,15 +173,16 @@
   40% {
     transform: rotate(-15deg)
   }
+
   60% {
     transform: rotate(5deg)
   }
+
   80% {
     transform: rotate(-15deg)
   }
+
   100% {
     transform: rotate(0deg)
   }
 }
-
-

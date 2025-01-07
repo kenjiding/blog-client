@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { Input, Button, message, Modal } from 'antd';
+import { Input, Button, message, Modal, Select } from 'antd';
 import http from '@/utils/http';
 import { Col, Row } from 'antd';
 import { IArticle } from '@/components/article';
@@ -11,11 +11,13 @@ import Login from '@/components/login';
 import styles from './index.module.scss';
 import MarkdownIt from 'markdown-it';
 import 'react-markdown-editor-lite/lib/index.css';
+import { typeData } from '@/configs/static-config';
 
 const mdParser = new MarkdownIt();
 const MdEditor = dynamic(() => import('react-markdown-editor-lite'), {
   ssr: false,
 });
+
 
 async function saveData(data: IArticle) {
   const [err, res] = await catchError(http.post(`/article/create`, { data, ignore: true }));
@@ -50,6 +52,8 @@ const MarkdownEditor = ({params}: {
     tags: '',
     views: 0,
     tips: '',
+    image: '',
+    type: '',
   });
   const router = useRouter();
 
@@ -108,6 +112,19 @@ const MarkdownEditor = ({params}: {
         </Col>
         <Col span={12}>
           <Input placeholder='tips 提示' value={form.tips} onChange={(e) => setForm({...form, tips: e.target.value})} />
+        </Col>
+      </Row>
+      <Row style={{padding: '0px 0 20px 0'}} gutter={16}>
+        <Col span={12}>
+          <Input placeholder='图片 image' value={form.image} onChange={(e) => setForm({...form, image: e.target.value})} />
+        </Col>
+        <Col span={12}>
+          <Select
+            showSearch
+            placeholder="Select a type"
+            onChange={(val) => setForm({...form, type: val})}
+            options={typeData}
+          />
         </Col>
       </Row>
       <div className={styles['markdown-editor']}>

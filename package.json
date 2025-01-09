@@ -5,6 +5,7 @@
   "scripts": {
     "build": "NODE_ENV=production next build",
     "dev": "PORT=4000 NODE_ENV=development next dev",
+    "deploy": "AWS_PROFILE=aws_872570730 npx sst deploy --stage production",
     "lint": "next lint",
     "start": "next start",
     "test": "jest",

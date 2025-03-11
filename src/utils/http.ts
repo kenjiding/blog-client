@@ -53,7 +53,6 @@ class Http {
     }
   
     delete configs.data;
-    console.log('config900000s: ', configs);
   
     return fetch(getHost(PrePath + url), {
       // cache: 'no-cache',

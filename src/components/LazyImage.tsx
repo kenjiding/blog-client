@@ -16,8 +16,6 @@ const CenteredImage = ({ src, alt, className, index }: CenteredImageProps) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log(index, 'entry.intersectionRatio: ', entry.intersectionRatio);
-
         // 图片在 40%-60% 的视窗区域时视为“正中间”
         setIsCentered(entry.intersectionRatio >= 1);
       },

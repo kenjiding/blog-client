@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production next build",
-    "dev": "PORT=4000 NODE_ENV=development next dev",
+    "dev": "PORT=8080 NODE_ENV=development next dev",
     "deploy": "AWS_PROFILE=aws_872570730 npx sst deploy --stage production",
     "lint": "next lint",
     "start": "next start",
@@ -31,7 +31,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "sst": "3.3.22",
+    "sst": "3.9.4",
     "@lhci/cli": "^0.13.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",

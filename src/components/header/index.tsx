@@ -27,7 +27,7 @@ const Home = ({
     ref.current.parentNode?.addEventListener('scroll', handler);
 
     return () => {
-      ref.current?.parentNode?.removeEventListener('scroll', handler);
+      if(ref.current) ref.current?.parentNode?.removeEventListener('scroll', handler);
     }
   }, []);
 

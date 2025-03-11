@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 
-// 项目数据
+// 项目数据， 熟悉nodejs 高并发编程，性能优化。负载均衡，高可用，高性能，高并发，高可维护，高可扩展，高安全，高效率，高质量，高可读性，高可测试性
 const projects = [
   {
     id: 1,
@@ -13,7 +13,7 @@ const projects = [
     image: '/images/pacong.png',
   },
   {
-    id: 2,
+    id: 3,
     title: 'A PC-based cashier system for a large amusement park.',
     description: 'This is a PC-based cashier system for a large amusement park, featuring automatic software updates, color printing, membership cards, coupons, product management, and order management.',
     tech: ['Electron', 'Node.js', 'Vuejs'],
@@ -21,7 +21,15 @@ const projects = [
     image: '/images/youlebao.png',
   },
   {
-    id: 3,
+    id: 4,
+    title: 'Next.js-based e-commerce website with advanced SEO optimization.',
+    description: 'A high-performance SEO-optimized Next.js C-suite project with integrated back-end services supporting high concurrency, integrated Google Analytics (GA4) and Google Search for improved SEO rankings.',
+    tech: ['SEO', 'SSR', 'Nextjs', 'Lambda', 'CloudFront', 'React.js', 'Postgres', 'Drizzle orm'],
+    link: 'https://github.com/kenjiding/chengyi-website',
+    image: '/images/dianshang.png',
+  },
+  {
+    id: 5,
     title: 'Java-based intelligent e-commerce management website.',
     description: 'This is a next-generation intelligent e-commerce management project, featuring complex functionalities, route permissions, user and operation permissions management, and highly efficient product listing and delisting.',
     tech: ['Java', 'EC2', 'Nginx', 'Docker', 'Mysql'],
@@ -29,15 +37,7 @@ const projects = [
     image: '/images/admin.png',
   },
   {
-    id: 4,
-    title: 'Next.js-based e-commerce website with advanced SEO optimization.',
-    description: 'A high-performance, SEO-optimized Next.js C-end project, integrating Google Analytics (GA4) and Google Search for improved SEO rankings.',
-    tech: ['SEO', 'Nextjs', 'React.js', 'Postgres', 'Drizzle orm'],
-    link: 'https://github.com/kenjiding/chengyi-website',
-    image: '/images/dianshang.png',
-  },
-  {
-    id: 5,
+    id: 6,
     title: 'RN-based bill-sharing app.',
     description: 'This is a bill-sharing app that uses facial recognition to automatically sort utility bills (water, electricity, gas) and send them to an email. It also supports multi-user bill sharing.',
     tech: ['React Native', 'Mqtt', 'express', 'MongoDB'],
@@ -45,15 +45,24 @@ const projects = [
     image: '/images/bill.png',
   },
   {
-    id: 6,
+    id: 29,
+    title: 'High Cohesion · Lightweight Business components library',
+    description: `High Cohesion · Lightweight · Cross-Ecosystem"
+      Deeply integrating core business modules through dynamic External orchestration, intelligent CSS/JS atomic splitting, and a dual-mode build system, achieving on-demand loading acceleration of 40%+ and build size reduction of 65%. Seamlessly supports React/Vue multi-framework integration, covering 80% of mid-to-backend scenarios, driving 15+ product lines towards standardization and boosting development efficiency`,
+    tech: ['Vuejs', 'React.js', 'rollup', 'webpack', 'gulp', 'TypeScript'],
+    link: '#',
+    image: '/images/ui.png',
+  },
+  {
+    id: 7,
     title: 'blog service',
-    description: 'This is a blog service that includes features such as CRUD (Create, Read, Update, Delete) for blog posts, comments, likes, and user permission management.',
-    tech: ['Nestjs', 'Node.js', 'AWS', 'Lambda Serverless', 'Mysql'],
+    description: 'This is a blog service deployed in EC2 using Docker, Nginx and other technologies. It includes features such as CRUD (Create, Read, Update, Delete), Comments, Likes and User Rights Management for blog posts.',
+    tech: ['Nestjs', 'AWS', 'EC2', 'Serverless', 'Lambda', 'Mysql', 'Node.js'],
     link: 'https://github.com/kenjiding/blog-server',
     image: '/images/cicd.jpg',
   },
   {
-    id: 7,
+    id: 8,
     title: 'blog client',
     description: 'This is a Next.js client for a blog, featuring a stylish UI design, resume information, CRUD (Create, Read, Update, Delete) for articles, comments, likes, and user permission management.',
     tech: ['Nextjs', 'SEO', 'React', 'Node.js', 'postgres'],

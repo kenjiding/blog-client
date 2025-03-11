@@ -19,7 +19,7 @@ export default async function Job() {
       "startDate": "2021/04",
       "endDate": "2023/04",
       "description": [
-        `Back-end and Next.js applications deployed using Lambda Serverless architecture, optimizing scalability and cost.Front-end resources hosted on S3 for efficient distribution;`,
+        `A high concurrency Back-end order service and Next.js applications deployed using Lambda Serverless architecture, optimizing scalability and 40% cost reduction.Front-end resources hosted on S3 and CloudFront are efficiently distributed via CDN routing;`,
         `Implemented GitLab CI/CD pipeline to efficiently achieve automated deployment and regression testing, enhancing development and operational efficiency.`,
         `At the beginning of the project, implemented full-stack services on AWS EC2 with Docker integration, Leveraged Nginx for resource forwarding, improved the website's response speed.`,
         `Integrate Cypress E2E testing and Lighthouse CI for comprehensive testing and performance monitoring, Greatly improved the fault tolerance and maintainability of the project, keep consistently high performance LCP scores above 85 points.`
@@ -57,6 +57,7 @@ export default async function Job() {
       "startDate": "2019/04",
       "endDate": "2021/04",
       "description": [
+        `Maintaining the core logic of the enhanced webRTC interactive live component`,
         `Enhanced project build performance, achieving an 16MB reduction in package size and a notable increase in build access speed.`,
         `Responsible for developing and maintaining the internal YY live data content processing platform, as well as audio and video streaming playback. Participated in the engineering of remote public library sharing using module federation.`,
         `Implemented a Node.js BFF layer to harmonize data discrepancies and integrate cleansing processes across various live platforms.`,
@@ -92,13 +93,16 @@ export default async function Job() {
       <div>
         {job.map((data, i) => (
           <Slide key={data._id} delay={0.3}>
-            <div className="flex">
-              <div
-                className="relative flex flex-auto items-start lg:gap-x-6 gap-x-4 max-w-2xl before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)] dark:before:bg-zinc-800 before:bg-zinc-200"
-              >
+            <div className="flex max-md:flex-col">
+              <div className="relative flex flex-auto items-start lg:gap-x-6 gap-x-4 max-w-2xl
+            md:before:absolute md:before:bottom-0 md:before:top-[5rem] md:before:left-9 
+            md:before:w-[1px] md:before:h-[calc(100%-70px)] dark:md:before:bg-zinc-800 md:before:bg-zinc-200
+            max-md:flex-col max-md:items-center max-md:before:hidden">
                 <RefLink
                   href={data.url}
-                  className="grid place-items-center dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md overflow-clip relative"
+                  className="grid place-items-center dark:bg-primary-bg bg-secondary-bg border 
+                dark:border-zinc-800 border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md 
+                overflow-clip relative max-md:mb-6"
                 >
                   <Image
                     src={data.logo}
@@ -108,9 +112,9 @@ export default async function Job() {
                     height={50}
                   />
                 </RefLink>
-                <div className="flex flex-col items-start">
-                  <h3 className="text-xl font-semibold">{data.name}</h3>
-                  <p>{data.jobTitle}</p>
+                <div className="flex flex-col items-start max-md:w-full max-md:items-center max-md:text-center">
+                  <h3 className="text-2xl font-semibold">{data.name}</h3>
+                  <p className="text-left my-3">{data.jobTitle}</p>
                   <time className="text-sm text-zinc-500 mt-2 tracking-widest uppercase">
                     {formatDate(data.startDate)} -{" "}
                     {data.endDate ? (
@@ -121,20 +125,21 @@ export default async function Job() {
                       </span>
                     )}
                   </time>
-                  <div className="tracking-tight dark:text-zinc-400 text-zinc-600 my-4">
-                    {
-                      data.description.map((desc: string, index: number) => <p key={index}>
-                        <AiOutlineCheck className="inline text-green-400"></AiOutlineCheck>
+                  <div className="text-left tracking-tight dark:text-zinc-400 text-zinc-600 my-4 max-md:w-full">
+                    {data.description.map((desc: string, index: number) => (
+                      <p key={index} className="max-md:w-full">
+                        <AiOutlineCheck className="inline text-green-400" />
                         <span className="ml-2 font-mono">{desc}</span>
-                      </p>)
-                    }
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
+
               <div className="flex-1 flex justify-center items-center hidden xl:block ml-10">
-                {
-                  data.images && data.images.map((img: string, index: number) => <LazyImage key={index} src={img} alt="jj" index={i}></LazyImage>)
-                }
+                {data.images && data.images.map((img: string, index: number) => (
+                  <LazyImage key={index} src={img} alt="jj" index={i} />
+                ))}
               </div>
             </div>
           </Slide>

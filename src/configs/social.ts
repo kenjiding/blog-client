@@ -90,7 +90,7 @@ export const socialLinks = [
   },
   {
     id: 9,
-    name: "Electron/Tauri",
+    name: "Electron / Tauri",
     url: "https://freecodecamp.org/news/author/kenjiding/",
     icon: RiTailwindCssLine,
     status: "frontend",
@@ -111,14 +111,14 @@ export const socialLinks = [
   },
   {
     id: 12,
-    name: "Webpack/Vite/TurboPack",
+    name: "Webpack / Vite / TurboPack",
     url: "https://youtube.com/@kenjiding",
     icon: FaScrewdriverWrench,
     status: "frontend",
   },
   {
     id: 13,
-    name: "Tailwind/Headless UI",
+    name: "Tailwind CSS / Headless UI",
     url: "https://app.daily.dev/kenjiding",
     icon: RiTailwindCssLine,
     status: "frontend",

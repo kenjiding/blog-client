@@ -1,54 +1,93 @@
-// "use client"
 import React from 'react';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import styles from './id.module.scss';
 import 'highlight.js/styles/night-owl.css';
 import http from '@/utils/http';
 import Tags from '@/components/tags';
-import { IArticle } from '@/components/article';
 import MarkdownPreview from '@/components/markdown-preview';
-import Link from "next/link";
+import { IArticle } from '@/components/article';
 
-interface IArticalProps {
+interface ArticlePageProps {
   params: {
-    id: string
+    id: string;
+  };
+}
+
+// Define a default article structure for fallback
+const defaultArticle: IArticle = {
+  id: 0,
+  title: 'Article Not Found',
+  text: 'This article could not be loaded.',
+  views: 0,
+  createTime: new Date().toISOString(),
+  tags: '',
+  tips: '',
+  detial: '',
+  image: '',
+  type: '',
+};
+
+async function fetchArticle(id: string): Promise<IArticle> {
+  try {
+    const response = await http.get<IArticle>(`/article/get/${id}`, {
+      next: { revalidate: 60 * 60 * 24 * 7 },
+    });
+    return response;
+  } catch (error) {
+    console.error(`Failed to fetch article with ID ${id}:`, error);
+    // Instead of throwing, return the default article or trigger notFound()
+    const err = error as { response?: { status: number } };
+    if (err.response?.status === 404) {
+      notFound(); // Handle 404 explicitly
+    }
+    return defaultArticle; // Fallback for other errors
   }
 }
 
-async function counter(id: any) {
-  return await http.get(`/article/counter/${id}`);
+async function incrementCounter(id: string): Promise<void> {
+  try {
+    await http.get(`/article/counter/${id}`);
+  } catch (error) {
+    console.error(`Failed to increment counter for article ${id}:`, error);
+  }
 }
 
-async function getData(id: any) {
-  return await http.get<IArticle>(`/article/get/${id}`, {
-    next: {
-      revalidate: 60 * 60 * 24 * 7
-    }
-  });
-}
+const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
+  const article = await fetchArticle(params.id);
+  incrementCounter(params.id); // Fire-and-forget
 
-const MarkdownEditor: React.FC<IArticalProps> = async ({ params }) => {
-  const articleData: IArticle = await getData(params.id);
-  counter(params.id);
+  const createTime = article.createTime ?? new Date().toISOString();
 
   return (
     <div className={styles.wrapper}>
-      <div className='prose'>
-        <h1 className='text-4xl'>{articleData.title}</h1>
+      <article className="prose max-w-none">
+        <h1 className="text-4xl font-bold">{article.title}</h1>
         <div className={styles.info}>
-          <span>views: {articleData.views}<Link href={`/editor/${params.id}`}><i style={{marginLeft: '10px', color: '#4577b9'}}>edit</i></Link></span>
-          <span>Date: {articleData.createTime}</span>
+          <span>
+            Views: {article.views}
+            <Link href={`/editor/${params.id}`} prefetch={false}>
+              <i style={{ marginLeft: '10px', color: '#4577b9' }} className="hover:underline">
+                edit
+              </i>
+            </Link>
+          </span>
+          <span>Date: {new Date(createTime).toLocaleDateString()}</span>
         </div>
-        { articleData.tips ? <p className={styles.tips}>Tips: {articleData.tips}</p> : null }
+        {article.tips && (
+          <p className={styles.tips}>
+            <strong>Tips:</strong> {article.tips}
+          </p>
+        )}
         <div className={styles.preview}>
-          <MarkdownPreview text={articleData.text}></MarkdownPreview>
+          <MarkdownPreview text={article.text} />
         </div>
-      </div>
-
-      <div style={{padding: '20px'}}>
-        <Tags tags={articleData.tags}></Tags>
-      </div>
+      </article>
+      <aside style={{ padding: '20px' }}>
+        <Tags tags={article.tags} />
+      </aside>
     </div>
   );
-}
+};
 
-export default MarkdownEditor;
+export default ArticlePage;

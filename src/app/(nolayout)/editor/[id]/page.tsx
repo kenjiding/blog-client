@@ -74,7 +74,7 @@ const MarkdownEditor = ({params}: {
       body: formData,
     })
     .then((data: any) => {
-      callback(process.env.NEXT_PUBLIC_SERVER_HOST + data.imageUrl); // 调用 onSuccess 并传入图片 URL
+      callback(data.imageUrl); // 调用 onSuccess 并传入图片 URL
     })
     .catch((error) => {
       console.log('error: ', error);

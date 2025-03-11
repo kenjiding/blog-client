@@ -10,11 +10,21 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/styles')],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:3008/api/:path*' // 转发到另一个端口
+        destination: 'http://localhost:3333/api/:path*' // 转发到另一个端口
       },
     ]
   },

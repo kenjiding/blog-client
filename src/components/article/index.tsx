@@ -20,7 +20,7 @@ export interface IArticle {
 const fetchData = async () => {
   return await http.get<IArticle[]>('/article/get', {
     next: {
-      revalidate: 60 * 60 * 24 * 7
+      revalidate: 60
     },
   });
 }

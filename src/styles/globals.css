@@ -6,16 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@import "prism.css";
-
-body {
-  background-image: url("../assets/images/noise.png");
-  background-size: 200px 200px;
-  background-position: 0 0;
-  cursor: url('/images/normal.cur'), auto;
-
-}
-
 h1,
 h2,
 h3,
@@ -27,9 +17,7 @@ h4 {
   stroke-dasharray: 500px 100px;
   animation: animate 100s linear infinite alternate-reverse;
 }
-a:-webkit-any-link {
-  cursor: url('/images/normal.cur'), auto;
-}
+
 @keyframes animate {
   from {
     stroke-dashoffset: 0;
@@ -49,4 +37,24 @@ ol {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media print {
+  .print-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  .print-sidebar {
+    width: 240px !important;
+    flex-shrink: 0 !important;
+  }
+  .print-content {
+    width: calc(100% - 240px) !important;
+  }
+}
+
+.highlight-text {
+  @apply text-sky-600 font-semibold;
 }

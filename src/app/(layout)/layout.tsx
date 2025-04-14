@@ -1,9 +1,13 @@
-import "../styles/globals.css";
 import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { incognito } from "../assets/font/font";
-import { gitlabmono } from "../assets/font/font";
+import "../../styles/layout.css";
+import { incognito } from "../../assets/font/font";
+import { gitlabmono } from "../../assets/font/font";
+import Navbar from "../../components/global/Navbar";
+import Footer from "../../components/global/Footer";
+import { Providers } from "../../providers";
+import dynamic from "next/dynamic";
 
 // const ClockWithWebComponent = dynamic(
 //   () => import("@/components/Clock"), // 替换为实际组件路径
@@ -52,12 +56,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
-      >
+    <div>
+      <Providers>
+        <Navbar />
+        {/* <animated-clock-com style={{transform: 'scale(0.5)'}}/> */}
         {children}
-      </body>
-    </html>
+        <Footer />
+      </Providers>
+      <Script defer src="/js/clock.js" />
+      <Script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+      />
+    </div>
   );
 }

@@ -1,0 +1,13 @@
+
+@import "prism.css";
+
+body {
+  background-image: url("../assets/images/noise.png");
+  background-size: 200px 200px;
+  background-position: 0 0;
+  cursor: url('/images/normal.cur'), auto;
+}
+
+a:-webkit-any-link {
+  cursor: url('/images/normal.cur'), auto;
+}

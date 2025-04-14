@@ -1,3 +1,6 @@
+
+import tencent01 from "../assets/images/tencent01.png"
+import tencent02 from "../assets/images/tencent02.png"
 import { FaAws, FaNodeJs, FaReact, FaVuejs, FaScrewdriverWrench } from "react-icons/fa6";
 import {
   HiBeaker,
@@ -50,4 +53,110 @@ export const MenuData = [
     href: "/projects",
     icon: HiBeaker,
   },
+];
+
+export const jobs: any[] = [
+  {
+    "_id": "1",
+    "url": "https://www.tencent.com/",
+    "logo": require("../assets/images/7cmg-logo.png"),
+    "name": "International e-commerce independent website",
+    // "jobTitle": "This is an online music exchange platform that supports Tauri desktop on-demand, ordering of derivative products, and more!",
+    "summary": "",
+    "startDate": "2023/06",
+    "endDate": "now",
+    "description": [
+      `Designed and optimized a <span class="highlight-text">high-concurrency</span> order-snapping service using 
+        <span class="highlight-text">Node.js</span>, <span class="highlight-text">Redis</span>, and 
+        <span class="highlight-text">RabbitMQ</span>, leveraging <span class="highlight-text">Lua scripts</span>, 
+        distributed locks, and async queues to reduce order processing latency from <span class="highlight-text">200ms to 50ms</span>, 
+        stably handling <span class="highlight-text">100,000</span> requests per second.`,
+      `Enhanced <span class="highlight-text">SEO</span> for a <span class="highlight-text">Next.js</span> 
+      e-commerce platform by implementing <span class="highlight-text">incremental static regeneration (ISR)</span> 
+      and dynamic sitemap generation, improving page load speed by <span class="highlight-text">30%</span> and 
+      increasing organic search visibility.`,
+      `Using <span class="highlight-text">Lambda Serverless</span> architecture to deploy Next.js applications, 
+      optimizing scalability and <span class="highlight-text">40% cost reduction</span>. Front-end resources hosted on 
+      <span class="highlight-text">S3</span> and <span class="highlight-text">CloudFront</span> are efficiently 
+      distributed via <span class="highlight-text">CDN</span> routing.`,
+      `Implemented <span class="highlight-text">GitLab CI/CD</span> pipeline to efficiently achieve automated deployment 
+      and regression testing, enhancing development and operational efficiency.`,
+      `Deployed scalable and high availability full-stack services on <span class="highlight-text">AWS</span> with 
+      <span class="highlight-text">EC2</span>, <span class="highlight-text">Load Balancer</span>, and 
+      <span class="highlight-text">Auto Scaling Groups</span>; leveraged <span class="highlight-text">Docker</span> 
+      for containerized deployment and <span class="highlight-text">Nginx</span> for efficient traffic routing, 
+      enhancing system performance and responsiveness.`,
+      `Integrate <span class="highlight-text">Cypress E2E</span> testing and <span class="highlight-text">Lighthouse CI</span> 
+      for comprehensive testing and performance monitoring, Greatly improved the fault tolerance and maintainability of the project, 
+      keep consistently high performance <span class="highlight-text">LCP</span> scores above 
+      <span class="highlight-text">85 points</span>.`
+    ],
+    "images": [require("../assets/images/7cmg.jpg")]
+  },
+  {
+    "_id": "2",
+    "url": "https://www.tencent.com/",
+    "logo": require("../assets/images/tencent.png"),
+    "name": "Tencent Technology",
+    "jobTitle": "BI Visualization Low-code Platform",
+    "startDate": "2021/05",
+    "endDate": "2023/03",
+    "summary": "This is a low-code SaaS platform that allows for the construction of visual pages through a drag-and-drop method.",
+    "description": [
+      `Responsible for <span class="highlight-text">core rendering engine</span>, system design, maintenance, and code review of 
+      <span class="highlight-text">low-code BI visualization platform</span>, Built a 
+      <span class="highlight-text">remote plugin system</span> and <span class="highlight-text">CLI scaffold</span>, 
+      streamlining development workflows and boosting efficiency.`,
+      `Built a <span class="highlight-text">serverless</span> service using Node.js to generate web page screenshots with 
+      <span class="highlight-text">Puppeteer</span> and automatically push them to users, enabling low-cost, 
+      maintenance-free automation.`,
+      `Collaborated on developing a full-link data processing <span class="highlight-text">SASS platform</span>, 
+      responsible for building the <span class="highlight-text">micro frontend</span> engineering framework 
+      and handling the integration issues of <span class="highlight-text">React</span> and 
+      <span class="highlight-text">Vue</span> sub-projects, Resolved complex dependency and state management challenges, 
+      enhancing system reliability.`,
+      `Led the development of the company's internal <span class="highlight-text">business component library</span>, 
+      supporting both full and on-demand imports, enhance the reusability of the same components across different projects, 
+      accelerating feature delivery.`,
+      `Led the splitting of a large-scale project into <span class="highlight-text">monorepo multi-package</span> management, 
+      making it easier to maintain and decouple. Implemented <span class="highlight-text">multi-version build solutions</span> for the SASS platform.`,
+      // `Achieved 92% unit test for the core functionality coverage using Jest, and effectively improved code quality and maintainability through the Test-Driven Development (TDD) approach.`
+    ],
+    "images": [
+      tencent01,
+      tencent02,
+    ],
+  },
+  {
+    "_id": "3",
+    "url": "https://www.yy.com/",
+    "logo": require("../assets/images/yy-logo.jpg"),
+    "name": "YY Live, Bigo Live Technology",
+    "jobTitle": "Data Content Processing Platform Developer",
+    "summary": "",
+    "startDate": "2019/04",
+    "endDate": "2021/04",
+    "description": [
+      `Maintaining the core logic of the enhanced <span class="highlight-text">webRTC</span> interactive live component`,
+      `Enhanced project build performance, achieving an <span class="highlight-text">16MB</span> reduction in package size and a notable increase in build access speed.`,
+      `Responsible for developing and maintaining the internal YY live data content processing platform, as well as audio and video streaming playback. Participated in the engineering of remote public library sharing using <span class="highlight-text">module federation</span>.`,
+      // `Implemented a Node.js BFF layer to harmonize data discrepancies and integrate cleansing processes across various live platforms.`,
+      `Led the refactoring of the PC project into a responsive project to meet the needs of mobile office work.`
+    ],
+    "images": [require("../assets/images/yy-live.jpg")]
+  },
+  {
+    "_id": "4",
+    "url": "https://www.rapeseedflower.com/",
+    "logo": require("../assets/images/youcaihua.png"),
+    "name": "Rapeseed Flower Game Technology",
+    "jobTitle": "Game Store Management System (Desktop)",
+    "summary": "",
+    "startDate": "2018/02",
+    "endDate": "2019/03",
+    "description": [
+      `Developed a reusable <span class="highlight-text">Electron printing component</span> and enhanced frontend data caching with IndexedDB and WebSocket.`,
+      `Optimized UI animations and image uploads using requestAnimationFrame and canvas-based compression for improved performance.`
+    ]
+  }
 ];

@@ -7,7 +7,7 @@ import MoonIcon from "../../assets/icons/MoonIcon";
 export default function Theme() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [hasMounted, setHasMounted] = useState(false);
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const currentTheme = theme === "system" ? 'dark' : theme;
 
   function toggleTheme() {
     return currentTheme === "light" ? setTheme("dark") : setTheme("light");

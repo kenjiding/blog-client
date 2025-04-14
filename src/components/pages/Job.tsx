@@ -13,15 +13,17 @@ export default async function Job() {
       "_id": "1",
       "url": "https://www.tencent.com/",
       "logo": require("../../assets/images/7cmg-logo.png"),
-      "name": "Online Music Exchange Platform",
-      "jobTitle": "This is an online music exchange platform that supports Tauri desktop on-demand, ordering of derivative products, and more!",
+      "name": "International e-commerce independent website",
+      // "jobTitle": "This is an online music exchange platform that supports Tauri desktop on-demand, ordering of derivative products, and more!",
       "summary": "",
-      "startDate": "2021/04",
-      "endDate": "2023/04",
+      "startDate": "2023/06",
+      "endDate": "now",
       "description": [
-        `A high concurrency Back-end order service and Next.js applications deployed using Lambda Serverless architecture, optimizing scalability and 40% cost reduction.Front-end resources hosted on S3 and CloudFront are efficiently distributed via CDN routing;`,
+        `Designed and optimized a high-concurrency order-snapping service using Node.js, Redis, and RabbitMQ, leveraging Lua scripts, distributed locks, and async queues to reduce order processing latency from 200ms to 50ms, stably handling 100,000 requests per second.`,
+        `Enhanced SEO for a Next.js e-commerce platform by implementing incremental static regeneration (ISR) and dynamic sitemap generation, improving page load speed by 30% and increasing organic search visibility.`,
+        `Using Lambda Serverless architecture to deploy Next.js applications, optimizing scalability and 40% cost reduction.Front-end resources hosted on S3 and CloudFront are efficiently distributed via CDN routing;`,
         `Implemented GitLab CI/CD pipeline to efficiently achieve automated deployment and regression testing, enhancing development and operational efficiency.`,
-        `At the beginning of the project, implemented full-stack services on AWS EC2 with Docker integration, Leveraged Nginx for resource forwarding, improved the website's response speed.`,
+        `Deployed scalable and high availability full-stack services on AWS with EC2, Load Balancer, and Auto Scaling Groups; leveraged Docker for containerized deployment and Nginx for efficient traffic routing, enhancing system performance and responsiveness.`,
         `Integrate Cypress E2E testing and Lighthouse CI for comprehensive testing and performance monitoring, Greatly improved the fault tolerance and maintainability of the project, keep consistently high performance LCP scores above 85 points.`
       ],
       "images": [require("../../assets/images/7cmg.jpg")]
@@ -32,15 +34,16 @@ export default async function Job() {
       "logo": require("../../assets/images/tencent.png"),
       "name": "Tencent Technology",
       "jobTitle": "BI Visualization Low-code Platform",
-      "startDate": "2021/04",
-      "endDate": "2023/04",
+      "startDate": "2021/05",
+      "endDate": "2023/03",
       "summary": "This is a low-code SaaS platform that allows for the construction of visual pages through a drag-and-drop method.",
       "description": [
-        `Responsible for core rendering engine, system design, maintenance, and code review of low-code BI visualization platform, as well as led the development of the remote plugin system and scaffold, improve development efficiency.`,
-        `Collaborated on developing a full-link data processing SASS platform, responsible for building themicro frontend engineering framework and handling the integration issues of React and Vue sub-projects, solving the difficulties in the project`,
-        `Led the development of the company's internal business component library, supporting both full and on-demand imports, enhance the reusability of the same components across different projects.`,
+        `Responsible for core rendering engine, system design, maintenance, and code review of low-code BI visualization platform, Built a remote plugin system and CLI scaffold, streamlining development workflows and boosting efficiency.`,
+        `Built a serverless service using Node.js to generate web page screenshots with Puppeteer and automatically push them to users, enabling low-cost, maintenance-free automation`,
+        `Collaborated on developing a full-link data processing SASS platform, responsible for building themicro frontend engineering framework and handling the integration issues of React and Vue sub-projects, Resolved complex dependency and state management challenges, enhancing system reliability`,
+        `Led the development of the company's internal business component library, supporting both full and on-demand imports, enhance the reusability of the same components across different projects.accelerating feature delivery.`,
         `Led the splitting of a large-scale project into monorepo multi-package management, making it easier to maintain and decouple. Implemented multi-version build solutions for the SASS platform`,
-        `Achieved 92% unit test for the core functionality coverage using Jest, and effectively improved code quality and maintainability through the Test-Driven Development (TDD) approach.`
+        // `Achieved 92% unit test for the core functionality coverage using Jest, and effectively improved code quality and maintainability through the Test-Driven Development (TDD) approach.`
       ],
       "images": [
         tencent01,
@@ -60,7 +63,7 @@ export default async function Job() {
         `Maintaining the core logic of the enhanced webRTC interactive live component`,
         `Enhanced project build performance, achieving an 16MB reduction in package size and a notable increase in build access speed.`,
         `Responsible for developing and maintaining the internal YY live data content processing platform, as well as audio and video streaming playback. Participated in the engineering of remote public library sharing using module federation.`,
-        `Implemented a Node.js BFF layer to harmonize data discrepancies and integrate cleansing processes across various live platforms.`,
+        // `Implemented a Node.js BFF layer to harmonize data discrepancies and integrate cleansing processes across various live platforms.`,
         `Led the refactoring of the PC project into a responsive project to meet the needs of mobile office work.`
       ],
       "images": [require("../../assets/images/yy-live.jpg")]

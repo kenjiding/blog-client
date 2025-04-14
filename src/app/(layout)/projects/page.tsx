@@ -23,7 +23,7 @@ const projects = [
   {
     id: 4,
     title: 'Next.js-based e-commerce website with advanced SEO optimization.',
-    description: 'A high-performance SEO-optimized Next.js C-suite project with integrated back-end services supporting high concurrency, integrated Google Analytics (GA4) and Google Search for improved SEO rankings.',
+    description: 'A high-performance SEO-optimized Next.js C-suite project with integrated back-end services supporting high concurrency, integrated Gray-scale release and Google Analytics (GA4) and Google Search for improved SEO rankings.',
     tech: ['SEO', 'SSR', 'Nextjs', 'Lambda', 'CloudFront', 'React.js', 'Postgres', 'Drizzle orm'],
     link: 'https://github.com/kenjiding/chengyi-website',
     image: '/images/dianshang.png',

@@ -5,12 +5,20 @@ import Image from 'next/image';
 const projects = [
   {
     id: 1,
-    title: 'job-information-crawler',
+    title: 'job-information-crawler(over 100 github stars)',
     description: 'This is an automated project that scrapes job listings from Seek and LinkedIn, automatically sorts the files by date, and sends them to an email.',
     tech: ['Nodejs', 'Puppeteer', 'React.js', 'TypeScript'],
     link: 'https://github.com/kenjiding/job-information-crawler',
     start: 1212,
     image: '/images/pacong.png',
+  },
+  {
+    id: 2,
+    title: 'A high-performance, low-latency live streaming platform based on WebRTC, designed for learning purposes',
+    description: 'A real-time live streaming platform like TikTok built with NestJS, Next.js, WebRTC, and mediasoup. This project includes both the frontend and backend for a complete low-latency broadcasting system.',
+    tech: ['webRTC', 'mediasoup', 'Nextjs', 'Nestjs'],
+    link: 'https://github.com/kenjiding/kenji-live',
+    image: '/images/live.jpg',
   },
   {
     id: 3,

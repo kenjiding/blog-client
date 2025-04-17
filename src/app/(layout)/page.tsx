@@ -5,6 +5,7 @@ import { Slide } from "@/components/animation/Slide";
 import ContributionGraph from "@/components/pages/GithubCalendarComponent";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+import DownloadPDFButton from "@/components/DownloadPDFButton";
 
 export default async function Home() {
   const profile: any[] = [{
@@ -31,26 +32,40 @@ export default async function Home() {
         </li>
         <li className="w-0.5 h-32 bg-orange-400 m-auto mt-5"></li>
       </ul>
-      <section className="flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 mb-16">
-        {profile &&
-          profile.map((data) => (
-            <div key={data._id} className="lg:max-w-2xl max-w-2xl">
-              <Slide>
-                <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
-                  {data.headline}
-                </h1>
-                <p className="text-base dark:text-zinc-400 text-zinc-600 leading-relaxed">
-                  {data.shortBio}
-                </p>
-              </Slide>
-            </div>
-          ))}
-        <Slide delay={0.14} className="w-full flex justify-center">
-          <animated-clock-com></animated-clock-com>
-          {/* <HeroSvg /> */}
-        </Slide>
-      </section>
+      <section className="relative flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 mb-16 min-h-[600px] md:min-h-[500px]">
+        {/* 背景 SVG */}
+        <div className="absolute inset-0 z-0">
+          <HeroSvg className="w-full h-full object-contain opacity-30 dark:opacity-20" />
+        </div>
 
+        {/* 前景内容 */}
+        <div className="relative z-10 flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 w-full max-w-6xl mx-auto">
+          {/* Profile 内容 */}
+          {profile &&
+            profile.map((data) => (
+              <div key={data._id} className="lg:max-w-2xl max-w-2xl">
+                <Slide>
+                  <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
+                    {data.headline}
+                  </h1>
+                  <p className="text-base dark:text-zinc-400 text-zinc-600 leading-relaxed">
+                    {data.shortBio}
+                  </p>
+                </Slide>
+              </div>
+            ))}
+
+          {/* 时钟 */}
+          <Slide delay={0.14} className="w-full flex justify-center xl:justify-end">
+            <div className="relative z-10">
+              <animated-clock-com></animated-clock-com>
+            </div>
+          </Slide>
+        </div>
+      </section>
+      <div className="flex justify-center">
+        <DownloadPDFButton></DownloadPDFButton>
+      </div>
       <Slide delay={0.1}>
         <div className="mt-32 mb-32">
           <h2 className="font-incognito text-4xl font-bold tracking-tight animate-bounce">Skills</h2>

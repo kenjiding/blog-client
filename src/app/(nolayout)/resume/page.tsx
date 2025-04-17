@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaPhone, FaEnvelope, FaGlobe, FaGithub } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaGlobe, FaGithub, FaPassport } from 'react-icons/fa'; // 新增 FaPassport
 import { jobs } from '@/configs/static-config';
 
 // Helper function to parse description with <span class="highlight-text"> to <strong>
@@ -29,6 +29,10 @@ export default function ResumePage() {
             <div className="mb-8">
               <h3 className="text-lg font-semibold uppercase tracking-wider mb-4 pb-2 border-b border-sky-400">Contact</h3>
               <ul className="space-y-3">
+                <li className="flex items-start">
+                  <FaPassport className="text-sky-300 mt-1 mr-3 w-5" />
+                  <span className="text-sky-200">Work Visa, Expiry: 09-2028</span>
+                </li>
                 <li className="flex items-start">
                   <FaPhone className="text-sky-300 mt-1 mr-3 w-5" />
                   <Link href="tel:+610421259261" className="text-sky-200 hover:text-white transition">
@@ -78,12 +82,7 @@ export default function ResumePage() {
                 <div className="flex flex-wrap gap-2">
                   {['JavaScript', 'TypeScript', 'React', 'Vue', 'Nextjs', 'Webpack', 'Vite', 'Tailwind', 'Micro Frontend'].map(
                     (skill) => (
-                      <span
-                        key={skill}
-                        className=""
-                      >
-                        {skill}
-                      </span>
+                      <span key={skill}>{skill}</span>
                     )
                   )}
                 </div>
@@ -91,13 +90,8 @@ export default function ResumePage() {
               <div className="mb-4">
                 <h4 className="font-medium text-sky-300 mb-2">Backend</h4>
                 <div className="flex flex-wrap gap-2">
-                  {['Nodejs', 'JAVA', 'RabbitMQ', 'Trpc', 'Nestjs', 'Koa', 'Express', 'MySQL', 'MongoDB', 'Redis'].map((skill) => (
-                    <span
-                      key={skill}
-                      className=""
-                    >
-                      {skill}
-                    </span>
+                  {['Nodejs', 'JAVA', 'Nestjs', 'Koa', 'Express', 'Trpc', 'RabbitMQ', 'MySQL', 'MongoDB', 'Redis'].map((skill) => (
+                    <span key={skill}>{skill}</span>
                   ))}
                 </div>
               </div>
@@ -106,12 +100,7 @@ export default function ResumePage() {
                 <div className="flex flex-wrap gap-2">
                   {['AWS', 'Git Action', 'GitLab', 'Jenkins', 'Docker', 'Nginx', 'Cypress', 'Jest', 'Electron', 'React Native'].map(
                     (skill) => (
-                      <span
-                        key={skill}
-                        className=""
-                      >
-                        {skill}
-                      </span>
+                      <span key={skill}>{skill}</span>
                     )
                   )}
                 </div>
@@ -135,7 +124,6 @@ export default function ResumePage() {
             {/* Work Experience */}
             <section>
               <h2 className="text-2xl font-bold text-slate-700 mb-6 pb-2 border-b border-gray-200">Work Experience</h2>
-              {/* Dynamically Rendered Experiences */}
               {jobs.map((job) => (
                 <div key={job._id} className="mb-8">
                   <div className="flex flex-col sm:flex-row justify-between mb-2">
@@ -154,10 +142,6 @@ export default function ResumePage() {
             </section>
           </div>
         </div>
-
-        {/* <div className="text-white text-center py-3 text-sm">
-          <p>Kenjiding - Senior Frontend Engineer Resume</p>
-        </div> */}
       </div>
     </div>
   );

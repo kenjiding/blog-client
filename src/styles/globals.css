@@ -49,6 +49,7 @@ a {
   .print-sidebar {
     width: 240px !important;
     flex-shrink: 0 !important;
+    padding: 2rem 1rem !important;
   }
   .print-content {
     width: calc(100% - 240px) !important;

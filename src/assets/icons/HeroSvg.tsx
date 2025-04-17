@@ -1,10 +1,14 @@
-export default function HeroSvg() {
+interface HeroSvgProps {
+  className?: string;
+}
+
+const HeroSvg: React.FC<HeroSvgProps> = ({ className }) => {
   return (
     <svg
       viewBox="0 0 1273 906"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="lg:w-[450px] w-full h-full"
+      className={className} // 使用传入的 className
     >
       <g>
         <path
@@ -58,4 +62,6 @@ export default function HeroSvg() {
       </defs>
     </svg>
   );
-}
+};
+
+export default HeroSvg;

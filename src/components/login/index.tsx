@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useUserStore } from '@/store/user';
 import { message } from 'antd';
 import { login } from '@/api/login';
+import AnimatedButton from "@/components/animatedButton/AnimatedButton";
 
 export default function Login({
   onSuccess
@@ -39,13 +40,7 @@ export default function Login({
       <input type="password" name='pwd' id='pwd' required onChange={(e) => setForm({...form, password: e.target.value})} />
       <label htmlFor="pwd">Password</label>
     </div>
-    <a href="#" onClick={() => loginFn(form)}>
-      login in
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </a>
+    <AnimatedButton onClick={() => loginFn(form)}>login in</AnimatedButton>
   </div>
 }
 

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './index.module.scss';
-import { detectDevice, DeviceType } from '@/utils/helper';
+import DownloadPDFButton from "@/components/DownloadPDFButton";
 
 const Home = ({
   onLogoClick

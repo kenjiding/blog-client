@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import AnimatedButton from "@/components/animatedButton/AnimatedButton";
 
 // 项目数据， 熟悉nodejs 高并发编程，性能优化。负载均衡，高可用，高性能，高并发，高可维护，高可扩展，高安全，高效率，高质量，高可读性，高可测试性
 const projects = [
@@ -85,6 +86,11 @@ export default function Projects() {
         <title>我的项目 | 个人博客</title>
         <meta name="description" content="展示我的个人项目和技术能力" />
       </Head>
+      <div className='flex justify-center mb-14'>
+        <AnimatedButton>
+          <h1 className='text-3xl'>Open-source project</h1>
+        </AnimatedButton>
+      </div>
 
       <div className="min-h-screen bg-transparent text-white overflow-hidden pt-6">
         {/* 项目时间线 */}

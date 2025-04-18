@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import AnimatedButton from "@/components/animatedButton/AnimatedButton";
+import StartLiveGif from '@/../public/images/start-live.gif';
+import JoinRoomGif from '@/../public/images/join-room.gif';
+import SeekGif from '@/../public/images/seek.gif';
 
 // 项目数据， 熟悉nodejs 高并发编程，性能优化。负载均衡，高可用，高性能，高并发，高可维护，高可扩展，高安全，高效率，高质量，高可读性，高可测试性
 const projects = [
@@ -12,6 +15,10 @@ const projects = [
     link: 'https://github.com/kenjiding/job-information-crawler',
     start: 1212,
     image: '/images/pacong.png',
+    gifs: [{
+      decs: 'Feature: Seek crawler',
+      src: SeekGif,
+    }],
   },
   {
     id: 2,
@@ -20,6 +27,13 @@ const projects = [
     tech: ['webRTC', 'mediasoup', 'Nextjs', 'Nestjs'],
     link: 'https://github.com/kenjiding/kenji-live',
     image: '/images/live.jpg',
+    gifs: [{
+      decs: 'Feature: Start Live',
+      src: StartLiveGif,
+    }, {
+      decs: 'Feature: Join Room',
+      src: JoinRoomGif,
+    }],
   },
   {
     id: 3,
@@ -174,11 +188,25 @@ export default function Projects() {
 
                 {/* 描述 - hover 时渐显 */}
                 <div
-                  className={`absolute w-full md:w-6/12 p-4 bg-gray-900/70 rounded-3xl 
+                  className={`absolute z-10 w-full md:w-6/12 p-4 bg-gray-900/70 rounded-3xl 
                             border-4 border-gray-700 backdrop-blur-md
                             opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
                             ${index % 2 === 0 ? 'md:left-1/2 md:ml-12' : 'md:right-1/2 md:mr-12'}`}
                 >
+                  {
+                    project.gifs &&
+                    project.gifs.map((item, index) => (
+                      <div key={index}>
+                        <p>{item.decs}</p>
+                        <Image
+                          src={item.src}
+                          alt="start live"
+                          width={400}
+                          height={200}
+                        ></Image>
+                      </div>
+                    ))
+                  }
                   <p className="text-gray-400 text-lg">{project.description}</p>
                 </div>
               </div>

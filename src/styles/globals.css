@@ -59,3 +59,14 @@ a {
 .highlight-text {
   @apply text-sky-600 font-semibold;
 }
+
+#main-content {
+  transition: transform 0.5s ease;
+  transform-origin: left center;
+  box-sizing: border-box;
+  transform: rotateY(0deg);
+}
+
+#main-content.active {
+  transform: rotateY(-50deg);
+}

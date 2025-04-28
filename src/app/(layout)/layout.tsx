@@ -2,13 +2,10 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../../styles/layout.css";
-import { incognito } from "../../assets/font/font";
-import { gitlabmono } from "../../assets/font/font";
 import Navbar from "../../components/global/Navbar";
 import Footer from "../../components/global/Footer";
 import { Providers } from "../../providers";
-import dynamic from "next/dynamic";
-
+import MobileSidebar from "@/components/global/SideBar";
 // const ClockWithWebComponent = dynamic(
 //   () => import("@/components/Clock"), // 替换为实际组件路径
 //   { ssr: false } // 禁用 SSR
@@ -57,18 +54,20 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <Providers>
-        <Navbar />
-        {/* <animated-clock-com style={{transform: 'scale(0.5)'}}/> */}
-        {children}
-        <Footer />
-      </Providers>
+      <MobileSidebar></MobileSidebar>
+      <div id="main-content">
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
+      </div>
       <Script defer src="/js/clock.js" />
-      <Script
-        defer
-        src="https://cloud.umami.is/script.js"
-        data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-      />
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+        />
     </div>
   );
 }

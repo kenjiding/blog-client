@@ -7,6 +7,8 @@ import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import DownloadPDFButton from "@/components/DownloadPDFButton";
 
+
+// 个人简介说明：一个人支撑起整个前后端，云部署的80%的工作
 export default async function Home() {
   const profile: any[] = [{
     _id: "60f4e3b4b7d1e4f7b0b1c5b7",

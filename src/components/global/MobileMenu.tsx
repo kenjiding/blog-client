@@ -8,9 +8,11 @@ import {
 } from "react-icons/hi";
 import Logo from "@/assets/images/logo.png";
 import { MenuData } from "@/configs/static-config";
+import { useUserStore } from '@/store/user';
 
 export default function MobileMenu() {
   const [navShow, setNavShow] = useState(false);
+  const changeSidebarOpen = useUserStore.getState().changeSidebarOpen;
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -27,7 +29,7 @@ export default function MobileMenu() {
     <>
       <button
         aria-label="Toggle Menu"
-        onClick={onToggleNav}
+        onClick={() => changeSidebarOpen(true)}
         className="md:hidden dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 rounded-md p-2"
       >
         <RxHamburgerMenu className="text-xl" />

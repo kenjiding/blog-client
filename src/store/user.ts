@@ -7,7 +7,9 @@ interface IUserData {
 }
 
 interface IUserStore {
+  sidebarOpen: boolean;
   userData: IUserData;
+  changeSidebarOpen: (data: boolean) => void;
   updateUser: (data: any) => void;
   removeUser: () => void;
   updateUserName: (username: string) => void;
@@ -22,7 +24,11 @@ const defaultUserData: () => IUserData = () => {
 export const useUserStore = create<IUserStore>()(
   persist(
     immer((set) => ({
+      sidebarOpen: false,
       userData: defaultUserData(),
+      changeSidebarOpen: (data: boolean) => set((state) => {
+        state.sidebarOpen = data;
+      }),
       updateUser: (data) => set((state) => {
         const temp = {
           ...state.userData,

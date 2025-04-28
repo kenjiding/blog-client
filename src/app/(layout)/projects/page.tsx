@@ -1,9 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import AnimatedButton from "@/components/animatedButton/AnimatedButton";
-import StartLiveGif from '@/../public/images/start-live.gif';
-import JoinRoomGif from '@/../public/images/join-room.gif';
-import SeekGif from '@/../public/images/seek.gif';
 
 // 项目数据， 熟悉nodejs 高并发编程，性能优化。负载均衡，高可用，高性能，高并发，高可维护，高可扩展，高安全，高效率，高质量，高可读性，高可测试性
 const projects = [
@@ -17,7 +14,7 @@ const projects = [
     image: '/images/pacong.png',
     gifs: [{
       decs: 'Feature: Seek crawler',
-      src: SeekGif,
+      src: '/images/seek.gif',
     }],
   },
   {
@@ -29,10 +26,10 @@ const projects = [
     image: '/images/live.jpg',
     gifs: [{
       decs: 'Feature: Start Live',
-      src: StartLiveGif,
+      src: '/images/start-live.gif',
     }, {
       decs: 'Feature: Join Room',
-      src: JoinRoomGif,
+      src: '/images/join-room.gif',
     }],
   },
   {
@@ -203,6 +200,7 @@ export default function Projects() {
                           alt="start live"
                           width={400}
                           height={200}
+                          unoptimized
                         ></Image>
                       </div>
                     ))

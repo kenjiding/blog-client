@@ -40,18 +40,18 @@ const MobileSidebar = () => {
       {/* Background overlay - click to close (visible when sidebar is open) */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-gradient-to-br from-black/70 to-blue-900/50 backdrop-blur-[10] z-40 transition-opacity duration-500"
+          className="fixed inset-0 bg-gradient-to-br from-black/70 to-blue-600/50 z-40 transition-opacity duration-500"
           onClick={closeSidebar}
         />
       )}
 
       {/* Sidebar menu - right side */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-gray-900/30 backdrop-blur-lg border-l border-gray-500/20 text-white z-50 transform transition-transform duration-500 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-72 bg-gray-900/30 backdrop-blur-lg border-l border-gray-500/20 text-white z-50 transform transition-transform duration-500 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full relative overflow-hidden">
+        <div className="flex flex-col h-full relative overflow-y-auto">
           {/* Gradient overlay for visual depth */}
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-gray-900/80 pointer-events-none" />
 
@@ -104,8 +104,13 @@ const MobileSidebar = () => {
             </ul>
           </nav>
 
-          {/* Social Media Icons */}
-          <div className="p-6 border-t border-gray-600/20 relative z-10">
+          {/* Social Media Icons with adaptive bottom padding */}
+          <div
+            className="p-6 border-t border-gray-600/20 relative z-10"
+            style={{
+              paddingBottom: "calc(1.5rem + env(safe-area-inset-bottom))", // Add safe-area-inset-bottom to padding
+            }}
+          >
             <ul className="flex justify-center space-x-6">
               <li>
                 <a

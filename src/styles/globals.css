@@ -60,7 +60,7 @@ a {
   @apply text-sky-600 font-semibold;
 }
 
-#main-content {
+/* #main-content {
   transition: transform 0.5s ease;
   transform-origin: left center;
   box-sizing: border-box;
@@ -69,4 +69,26 @@ a {
 
 #main-content.active {
   transform: rotateY(-50deg);
+} */
+
+
+#main-content {
+  transition: transform 0.5s ease;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  height: 100vh;
+  overflow: auto;
+}
+
+#main-content.active {
+  transform: rotateY(46deg);
+}
+
+#root {
+  perspective: 1000px;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }

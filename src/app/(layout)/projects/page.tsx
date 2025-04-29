@@ -185,8 +185,8 @@ export default function Projects() {
 
                 {/* 描述 - hover 时渐显 */}
                 <div
-                  className={`absolute z-10 w-full md:w-6/12 p-4 bg-gray-900/70 rounded-3xl 
-                            border-4 border-gray-700 backdrop-blur-md
+                  className={`absolute z-10 w-full md:w-6/12 p-4 bg- gray-900/50 rounded-3xl 
+                            border-4 border-purple-400 backdrop-blur-md
                             opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
                             ${index % 2 === 0 ? 'md:left-1/2 md:ml-12' : 'md:right-1/2 md:mr-12'}`}
                 >
@@ -194,7 +194,7 @@ export default function Projects() {
                     project.gifs &&
                     project.gifs.map((item, index) => (
                       <div key={index}>
-                        <p>{item.decs}</p>
+                        <p className='mb-3'>{item.decs}</p>
                         <Image
                           src={item.src}
                           alt="start live"
@@ -205,7 +205,7 @@ export default function Projects() {
                       </div>
                     ))
                   }
-                  <p className="text-gray-400 text-lg">{project.description}</p>
+                  <p className="text-gray-200 text-lg mt-2">{project.description}</p>
                 </div>
               </div>
             ))}

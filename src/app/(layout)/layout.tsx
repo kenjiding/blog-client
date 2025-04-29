@@ -6,6 +6,8 @@ import Navbar from "../../components/global/Navbar";
 import Footer from "../../components/global/Footer";
 import { Providers } from "../../providers";
 import MobileSidebar from "@/components/global/SideBar";
+import { FaLinkedin, FaGithub } from "react-icons/fa6";
+import { MdOutlineMarkEmailRead } from "react-icons/md";
 // const ClockWithWebComponent = dynamic(
 //   () => import("@/components/Clock"), // 替换为实际组件路径
 //   { ssr: false } // 禁用 SSR
@@ -53,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div id="root">
       <MobileSidebar></MobileSidebar>
       <div id="main-content">
         <Providers>
@@ -62,6 +64,18 @@ export default function RootLayout({
           <Footer />
         </Providers>
       </div>
+      <ul className="fixed bottom-0 right-10 self-start">
+        <li className="text-2xl hover:text-blue-700 cursor-pointer">
+          <a href="https://www.linkedin.com/in/kenji-ding-50308527b/" target="_blank"><FaLinkedin></FaLinkedin></a>
+        </li>
+        <li className="text-2xl mt-5 mb-5 hover:text-gray-700 cursor-pointer">
+          <a href="https://github.com/kenjiding" target="_blank"><FaGithub></FaGithub></a>
+        </li>
+        <li className="text-2xl hover:text-green-700 cursor-pointer">
+          <a href="mailto:kenjiding807@gmail.com" target="_blank"><MdOutlineMarkEmailRead></MdOutlineMarkEmailRead></a>
+        </li>
+        <li className="w-0.5 h-32 bg-orange-400 m-auto mt-5"></li>
+      </ul>
       <Script defer src="/js/clock.js" />
         <Script
           defer

@@ -1,144 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Sidebar Effect</title>
-    <style>
-        body {
-            margin: 0;
-            overflow-x: hidden; /* Prevent horizontal scrollbar during animation */
-            font-family: sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar with Door Opening Effect</title>
+  <!-- Load Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Ensure full-screen height and proper 3D transform */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Prevent body scrollbars */
+    }
 
-        .container {
-            display: flex;
-            /* Add perspective to the container to enhance 3D effect */
-            perspective: 1000px;
-        }
+    .perspective-container {
+      perspective: 1000px;
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      position: relative;
+      overflow: hidden; /* Prevent scrollbars */
+    }
 
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            background-color: #f0f0f0;
-            transition: transform 0.5s ease; /* Smooth transition for the transform */
-            transform-origin: left center; /* Set the rotation origin to the left edge */
-            box-sizing: border-box; /* Include padding in the element's total width and height */
-        }
+    .main-content {
+      transition: transform 0.5s ease;
+      transform-origin: left center; /* Rotate around the left edge */
+      transform: rotateY(0deg);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      flex: 1; /* Take up remaining space */
+      min-height: 100vh; /* Ensure at least viewport height */
+      display: flex;
+      flex-direction: column;
+    }
 
-        .sidebar {
-            width: 250px;
-            background-color: #333;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: -250px; /* Initially off-screen */
-            height: 100%;
-            transition: left 0.5s ease; /* Smooth transition for the sidebar sliding */
-            padding-top: 20px;
-            box-sizing: border-box;
-            z-index: 10; /* Ensure sidebar is above main content */
-        }
+    .main-content.open {
+      transform: rotateY(46deg); /* Rotate the page like a door */
+    }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -256px; /* Hidden by default */
+      width: 256px;
+      height: 100vh; /* Full viewport height */
+      transition: transform 0.5s ease;
+      transform: translateX(0);
+      z-index: 10; /* Ensure sidebar is above main content */
+    }
 
-        .sidebar ul li {
-            padding: 10px 20px;
-            cursor: pointer;
-            border-bottom: 1px solid #555;
-        }
-
-        .sidebar ul li:hover {
-            background-color: #555;
-        }
-
-        .toggle-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 20; /* Ensure button is above everything */
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        /* Class added to body when sidebar is open */
-        body.sidebar-open .main-content {
-            transform: rotateY(-25deg); /* Rotate the main content inwards */
-        }
-
-        body.sidebar-open .sidebar {
-            left: 0; /* Slide sidebar into view */
-        }
-
-        /* Optional: Add an overlay effect */
-        body.sidebar-open .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-            z-index: 5; /* Below sidebar, above main content */
-            pointer-events: auto; /* Allow clicks to close sidebar */
-        }
-
-         .overlay {
-             pointer-events: none; /* Initially don't block clicks */
-         }
-
-
-    </style>
+    .sidebar.open {
+      transform: translateX(256px); /* Slide in from the left */
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-200">
+  <div class="perspective-container">
+    <!-- Sidebar -->
+    <div class="sidebar bg-gray-800 text-white open">
+      <div class="p-4 h-full flex flex-col">
+        <h2 class="text-xl font-bold mb-4">Sidebar Menu</h2>
+        <ul class="flex-1">
+          <li class="py-2"><a href="#" class="hover:text-gray-300">Home</a></li>
+          <li class="py-2"><a href="#" class="hover:text-gray-300">About</a></li>
+          <li class="py-2"><a href="#" class="hover:text-gray-300">Projects</a></li>
+          <li class="py-2"><a href="#" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <div class="container">
-        <div class="sidebar">
-            <ul>
-                <li>Menu Item 1</li>
-                <li>Menu Item 2</li>
-                <li>Menu Item 3</li>
-                <li>Menu Item 4</li>
-            </ul>
-        </div>
+    <!-- Main Content -->
+    <div class="main-content bg-blue-900 text-white p-8 open">
+      <button id="toggle-sidebar" class="mb-4 p-2 bg-gray-700 text-white rounded hover:bg-gray-600">
+        Toggle Sidebar
+      </button>
+      <h1 class="text-3xl font-bold mb-4">HI, I’M KENJI DING AS A FULL-STACK DEVELOPER WITH 7 YEARS OF EXPERIENCE</h1>
+      <p class="text-lg">
+        I am a seasoned developer with a proven track record of delivering high-quality solutions. Developed a GitHub open-source project with over 100 stars. I have built multiple independent web services from the ground up, skilled in Node.js, NestJS, Express, and related frameworks. On the front-end, I am highly proficient in React, Vue, Webpack, and Vite, Micro Front-end, and skilled in building responsive websites and applications across PC, mobile, and desktop. My experience spans full-stack development, microservices, cloud technologies like AWS, and SEO optimization. I am passionate about performance optimization and latest tech exploration. I specialize in writing clean, test-driven code, ensuring project stability through comprehensive testing (TDD and E2E). As an individual contributor, I have independently handled 80% of the front-end, back-end, and cloud deployment tasks.
+      </p>
+    </div>
+  </div>
 
-        <div class="main-content">
-            <h1>Main Content Area</h1>
-            <p>This is the main content of the page. When the sidebar opens, this area will perform a 3D rotation effect.</p >
-            <p>Scroll down to see more content.</p >
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p >
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p >
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p >
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p >
-        </div>
+  <script>
+    // JavaScript to toggle the sidebar and main content rotation
+    const toggleButton = document.getElementById('toggle-sidebar');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
 
-         <div class="overlay"></div> </div>
-
-    <button class="toggle-btn">Open Sidebar</button>
-
-    <script>
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const body = document.body;
-        const overlay = document.querySelector('.overlay');
-
-        function toggleSidebar() {
-            body.classList.toggle('sidebar-open');
-        }
-
-        toggleBtn.addEventListener('click', toggleSidebar);
-
-        // Optional: Close sidebar when clicking on the overlay
-        overlay.addEventListener('click', toggleSidebar);
-
-    </script>
-
+    toggleButton.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      mainContent.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>

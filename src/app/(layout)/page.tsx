@@ -4,7 +4,7 @@ import Social from "@/components/Social";
 import { Slide } from "@/components/animation/Slide";
 import ContributionGraph from "@/components/pages/GithubCalendarComponent";
 import DownloadPDFButton from "@/components/DownloadPDFButton";
-
+import ShinyText from "@/components/ShinyText";
 
 // 个人简介说明：一个人支撑起整个前后端，云部署的80%的工作
 export default async function Home() {
@@ -36,9 +36,7 @@ export default async function Home() {
                   <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
                     {data.headline}
                   </h1>
-                  <p className="text-base dark:text-zinc-400 text-zinc-600 leading-relaxed">
-                    {data.shortBio}
-                  </p>
+                  <ShinyText text={data.shortBio}></ShinyText>
                 </Slide>
               </div>
             ))}

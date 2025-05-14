@@ -1,5 +1,6 @@
 import { socialLinks } from "../configs/social";
 import RefLink from "./RefLink";
+import ShinyText from "@/components/ShinyText";
 
 export default function Social({ type }: { type: string }) {
   return (
@@ -18,7 +19,7 @@ export default function Social({ type }: { type: string }) {
                   aria-hidden="true"
                 />{" "}
                 &nbsp;
-                {value.name}
+                <ShinyText text={value.name}></ShinyText>
               </span>
             </RefLink>
           </li>

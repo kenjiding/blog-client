@@ -130,7 +130,7 @@ export default function ResumePage() {
                     <h3 className="text-xl font-semibold text-slate-700">{job.name}</h3>
                     <span className="text-gray-600 italic">{`${job.startDate} - ${job.endDate}`}</span>
                   </div>
-                  <h4 className="text-sky-600 font-medium mb-3">{job.jobTitle}</h4>
+                  <h4 className="text-sky-600 font-medium mb-3">{job.projectDesc}</h4>
                   {job.summary && <p className="text-gray-700 mb-3">{job.summary}</p>}
                   <ul className="space-y-3 list-disc pl-5 text-gray-700">
                     {job.description.map((desc: string, index: number) => (

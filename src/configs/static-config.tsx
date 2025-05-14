@@ -61,10 +61,12 @@ export const jobs: any[] = [
     "url": "https://www.tencent.com/",
     "logo": require("../assets/images/7cmg-logo.png"),
     "name": "International e-commerce independent website",
-    // "jobTitle": "This is an online music exchange platform that supports Tauri desktop on-demand, ordering of derivative products, and more!",
+    "jobTitle": "Senior Full Stack Engineer",
+    "projectDesc": "Independently architected and delivered a scalable full-stack e-commerce platform with high availability, low-latency order processing, serverless deployment, SEO optimization, and automated CI/CD and testing pipelines, resulting in significant performance, cost, and maintainability improvements.",
     "summary": "",
     "startDate": "2023/06",
     "endDate": "now",
+    "techStack": ["Next.js", "Node.js", "Nest.js", "Redis", "RabbitMQ", "AWS", "GitLab CI/CD"],
     "description": [
       `Designed and optimized a <span class="highlight-text">high-concurrency</span> order-snapping service using 
         <span class="highlight-text">Node.js</span>, <span class="highlight-text">Redis</span>, and 
@@ -88,7 +90,7 @@ export const jobs: any[] = [
       enhancing system performance and responsiveness.`,
       `Integrate <span class="highlight-text">Cypress E2E</span> testing and <span class="highlight-text">Lighthouse CI</span> 
       for comprehensive testing and performance monitoring, Greatly improved the fault tolerance and maintainability of the project, 
-      keep consistently high performance <span class="highlight-text">LCP</span> scores above 
+      keep consistently <span class="highlight-text">high performance</span> scores above 
       <span class="highlight-text">85 points</span>.`
     ],
     "images": [require("../assets/images/7cmg.jpg")]
@@ -97,11 +99,13 @@ export const jobs: any[] = [
     "_id": "2",
     "url": "https://www.tencent.com/",
     "logo": require("../assets/images/tencent.png"),
-    "name": "Tencent Technology",
-    "jobTitle": "BI Visualization Low-code Platform",
+    "name": "Tencent Technology (China) Co., Ltd",
+    "jobTitle": "Senior Full Stack Engineer",
+    "projectDesc": "Designed and implemented a SaaS-based low-code platform for enterprise-level data analytics, enabling external database integration, data modeling, field cleansing, and dimension configuration. The platform empowers users to complete the entire data pipeline—from ingestion to BI visualization—without writing any code.",
     "startDate": "2021/05",
     "endDate": "2023/03",
     "summary": "This is a low-code SaaS platform that allows for the construction of visual pages through a drag-and-drop method.",
+    "techStack": ["React", "Vue", "Node.js", "Monorepo", "Micro Frontend", "Webpack", "Rollup", "Puppeteer", "SASS"],
     "description": [
       `Responsible for <span class="highlight-text">core rendering engine</span>, system design, maintenance, and code review of 
       <span class="highlight-text">low-code BI visualization platform</span>, Built a 
@@ -132,12 +136,14 @@ export const jobs: any[] = [
     "url": "https://www.yy.com/",
     "logo": require("../assets/images/yy-logo.jpg"),
     "name": "YY Live, Bigo Live Technology",
-    "jobTitle": "Data Content Processing Platform Developer",
+    "projectDesc": "Data Content Processing Platform Developer",
     "summary": "",
     "startDate": "2019/04",
     "endDate": "2021/04",
+    "jobTitle": "Mid-level Frontend Engineer",
+    "techStack": ["Web Component", "React", "Vue", "Redux", "Vuex", "Webpack"],
     "description": [
-      `Maintaining the core logic of the enhanced <span class="highlight-text">webRTC</span> interactive live component`,
+      `Built a reusable Component library with <span class="highlight-text">Web Component</span> and Shadow DOM, enabling cross-framework integration and powering a design system used by 3+ teams`,
       `Enhanced project build performance, achieving an <span class="highlight-text">16MB</span> reduction in package size and a notable increase in build access speed.`,
       `Responsible for developing and maintaining the internal YY live data content processing platform, as well as audio and video streaming playback. Participated in the engineering of remote public library sharing using <span class="highlight-text">module federation</span>.`,
       // `Implemented a Node.js BFF layer to harmonize data discrepancies and integrate cleansing processes across various live platforms.`,
@@ -150,10 +156,12 @@ export const jobs: any[] = [
     "url": "https://www.rapeseedflower.com/",
     "logo": require("../assets/images/youcaihua.png"),
     "name": "Rapeseed Flower Game Technology",
-    "jobTitle": "Game Store Management System (Desktop)",
+    "jobTitle": "Frontend Engineer",
+    "projectDesc": "Game Store Management System (Desktop)",
     "summary": "",
     "startDate": "2018/02",
     "endDate": "2019/03",
+    "techStack": ["React", "Node.js", "Electron", "Webpack"],
     "description": [
       `Developed a reusable <span class="highlight-text">Electron printing component</span> and enhanced frontend data caching with IndexedDB and WebSocket.`,
       `Optimized UI animations and image uploads using requestAnimationFrame and canvas-based compression for improved performance.`

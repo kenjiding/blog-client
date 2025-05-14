@@ -47,7 +47,7 @@ const MobileSidebar = () => {
 
       {/* Sidebar menu - right side */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-gray-900/30 backdrop-blur-lg border-l border-gray-500/20 text-white z-50 transform transition-transform duration-500 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-52 bg-gray-900/30 backdrop-blur-lg border-l border-gray-500/20 text-white z-50 transform transition-transform duration-500 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -39,38 +39,9 @@ a {
   text-decoration: none;
 }
 
-@media print {
-  .print-container {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-  }
-  .print-sidebar {
-    width: 240px !important;
-    flex-shrink: 0 !important;
-    padding: 2rem 1rem !important;
-  }
-  .print-content {
-    width: calc(100% - 240px) !important;
-  }
-}
-
 .highlight-text {
   @apply text-sky-600 font-semibold;
 }
-
-/* #main-content {
-  transition: transform 0.5s ease;
-  transform-origin: left center;
-  box-sizing: border-box;
-  transform: rotateY(0deg);
-}
-
-#main-content.active {
-  transform: rotateY(-50deg);
-} */
-
 
 #main-content {
   transition: transform 0.5s ease;
@@ -91,4 +62,20 @@ a {
   height: 100vh;
   overflow: hidden;
   position: relative;
+}
+
+@media print {
+  html, body {
+    font-size: 12px !important;
+    color: black !important;
+    background-color: white !important;
+  }
+  a {
+    color: #333 !important;
+    text-decoration: none !important;
+  }
+  @page {
+    margin: 1.5cm !important;
+    size: A4 !important;
+  }
 }

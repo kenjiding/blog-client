@@ -11,12 +11,12 @@ export default function ContributionGraph() {
   const [calendarYear, setCalendarYear] = useState<number | undefined>(
     undefined
   );
-  const { theme, systemTheme } = useTheme();
+  const { theme } = useTheme();
   const [serverTheme, setServerTheme] = useState<"light" | "dark" | undefined>(
     undefined
   );
-  const scheme =
-    theme === "light" ? "light" : theme === "dark" ? "dark" : systemTheme;
+  // 简化主题逻辑，默认为dark
+  const scheme = theme === "light" ? "light" : "dark";
 
   // Set theme only after rendering to avoid mismatch between client and server
   // https://github.com/vercel/next.js/issues/10608#issuecomment-589073831

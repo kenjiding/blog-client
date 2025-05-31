@@ -91,7 +91,7 @@ export const jobs: any[] = [
       `Integrate <span class="highlight-text">Cypress E2E</span> testing and <span class="highlight-text">Lighthouse CI</span> 
       for comprehensive testing and performance monitoring, Greatly improved the fault tolerance and maintainability of the project, 
       keep consistently <span class="highlight-text">high performance</span> scores above 
-      <span class="highlight-text">85 points</span>.`
+      <span class="highlight-text">95 points</span>.`
     ],
     "images": [require("../assets/images/7cmg.jpg")]
   },

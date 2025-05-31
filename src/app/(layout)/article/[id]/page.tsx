@@ -62,21 +62,22 @@ const ArticlePage: React.FC<ArticlePageProps> = async ({ params }) => {
   return (
     <div className={styles.wrapper}>
       <article className="prose max-w-none">
-        <h1 className="text-4xl font-bold">{article.title}</h1>
+        <h1 className="text-4xl font-bold dark:text-white text-zinc-800">{article.title}</h1>
         <div className={styles.info}>
-          <span>
+          <span className="dark:text-zinc-300 text-zinc-600">
             Views: {article.views}
             <Link href={`/editor/${params.id}`} prefetch={false}>
-              <i style={{ marginLeft: '10px', color: '#4577b9' }} className="hover:underline">
+              <i style={{ marginLeft: '10px' }} className="hover:underline dark:text-blue-400 text-blue-600">
                 edit
               </i>
             </Link>
           </span>
-          <span>Date: {new Date(createTime).toLocaleDateString()}</span>
+          <span className="dark:text-zinc-300 text-zinc-600">Date: {new Date(createTime).toLocaleDateString()}</span>
         </div>
         {article.tips && (
           <p className={styles.tips}>
-            <strong>Tips:</strong> {article.tips}
+            <strong className="dark:text-zinc-200 text-zinc-700">Tips:</strong> 
+            <span className="dark:text-zinc-300 text-zinc-600">{article.tips}</span>
           </p>
         )}
         <div className={styles.preview}>

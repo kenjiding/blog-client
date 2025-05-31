@@ -99,16 +99,17 @@ export default function Projects() {
       </Head>
       <div className='flex justify-center mb-14'>
         <AnimatedButton>
-          <h1 className='text-3xl'>Open-source project</h1>
+          <h1 className='text-3xl dark:text-zinc-200 text-zinc-800'>Open-source project</h1>
         </AnimatedButton>
       </div>
 
-      <div className="min-h-screen bg-transparent text-white overflow-hidden pt-6">
+      <div className="min-h-screen bg-transparent dark:text-white text-zinc-800 overflow-hidden pt-6">
         {/* 项目时间线 */}
         <main className="max-w-4xl mx-auto px-6 pb-20 relative">
           {/* 时间线中央线 */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full 
-                        bg-gradient-to-b from-gray-500 to-gray-800 
+                        dark:bg-gradient-to-b dark:from-gray-500 dark:to-gray-800 
+                        bg-gradient-to-b from-zinc-300 to-zinc-500
                         animate-[lineGlow_4s_ease-in-out_infinite]" />
 
           <div className="space-y-16">
@@ -119,19 +120,23 @@ export default function Projects() {
               >
                 {/* 时间线节点 */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 
-                              bg-gray-300 rounded-full border-4 border-gray-500 
+                              dark:bg-gray-300 bg-zinc-600 rounded-full 
+                              dark:border-4 dark:border-gray-500 border-4 border-zinc-400
                               transition-all duration-400 ease-out
-                              group-hover:scale-150 group-hover:shadow-[0_0_15px_rgba(209,213,219,0.8)] 
+                              group-hover:scale-150 dark:group-hover:shadow-[0_0_15px_rgba(209,213,219,0.8)] 
+                              group-hover:shadow-[0_0_15px_rgba(82,82,91,0.8)]
                               animate-[pulseNode_2s_ease-in-out_infinite]" />
 
                 {/* 项目卡片 */}
                 <div
-                  className={`w-full md:w-4/12 p-4 bg-gray-900/70 rounded-3xl 
-                            border-4 border-gray-700 backdrop-blur-md
+                  className={`w-full md:w-4/12 p-4 
+                            dark:bg-gray-900/70 bg-white/70 rounded-3xl 
+                            dark:border-4 dark:border-gray-700 border-4 border-zinc-200 backdrop-blur-md
                             transition-all duration-400 ease-out
                             group-hover:rotate-2 group-hover:scale-105 
-                            group-hover:shadow-[8px_8px_0px_rgba(107,114,128,0.8)]
-                            group-hover:border-gray-500
+                            dark:group-hover:shadow-[8px_8px_0px_rgba(107,114,128,0.8)]
+                            group-hover:shadow-[8px_8px_0px_rgba(161,161,170,0.8)]
+                            dark:group-hover:border-gray-500 group-hover:border-zinc-400
                             ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
                 >
                   <div className="relative overflow-hidden rounded-2xl mb-3">
@@ -144,26 +149,31 @@ export default function Projects() {
                                transition-transform duration-600 ease-out
                                group-hover:scale-110 group-hover:rotate-[-2deg]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/50 to-transparent 
+                    <div className="absolute inset-0 dark:bg-gradient-to-t dark:from-indigo-900/50 dark:to-transparent 
+                                  bg-gradient-to-t from-blue-200/50 to-transparent
                                   opacity-50 group-hover:opacity-70 transition-opacity duration-400" />
                   </div>
 
-                  <h2 className="text-lg font-bold mb-2 text-white 
-                               transition-colors duration-300 group-hover:text-gray-300"
+                  <h2 className="text-lg font-bold mb-2 dark:text-white text-zinc-800
+                               transition-colors duration-300 dark:group-hover:text-gray-300 group-hover:text-zinc-600"
                   >
                     {project.title}
                   </h2>
-                  {/* <p className="text-gray-400 text-xs mb-3 line-clamp-2">
+                  {/* <p className="dark:text-gray-400 text-zinc-600 text-xs mb-3 line-clamp-2">
                     {project.description}
                   </p> */}
                   <div className="flex flex-wrap gap-1 mb-3">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-1.5 py-0.5 bg-gray-700/30 text-gray-300 text-[10px] 
-                                 font-medium rounded-full border border-gray-600/50
+                        className="px-1.5 py-0.5 
+                                 dark:bg-gray-700/30 bg-zinc-200/70 
+                                 dark:text-gray-300 text-zinc-700 text-[10px] 
+                                 font-medium rounded-full 
+                                 dark:border dark:border-gray-600/50 border border-zinc-300/50
                                  transition-all duration-300
-                                 group-hover:bg-gray-600/50 group-hover:border-gray-500"
+                                 dark:group-hover:bg-gray-600/50 dark:group-hover:border-gray-500
+                                 group-hover:bg-zinc-300/70 group-hover:border-zinc-400"
                       >
                         {tech}
                       </span>
@@ -173,11 +183,15 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-4 py-1.5 bg-transparent text-gray-300 
-                             font-bold rounded-full border-2 border-gray-500
+                    className="inline-block px-4 py-1.5 bg-transparent 
+                             dark:text-gray-300 text-zinc-700
+                             font-bold rounded-full 
+                             dark:border-2 dark:border-gray-500 border-2 border-zinc-400
                              transition-all duration-300
-                             hover:bg-gray-500 hover:text-white hover:scale-110 
-                             hover:shadow-[0_0_15px_rgba(107,114,128,0.7)]"
+                             dark:hover:bg-gray-500 dark:hover:text-white 
+                             hover:bg-zinc-500 hover:text-white hover:scale-110 
+                             dark:hover:shadow-[0_0_15px_rgba(107,114,128,0.7)]
+                             hover:shadow-[0_0_15px_rgba(161,161,170,0.7)]"
                   >
                     More Details
                   </a>
@@ -185,8 +199,9 @@ export default function Projects() {
 
                 {/* 描述 - hover 时渐显 */}
                 <div
-                  className={`absolute z-10 w-full md:w-6/12 p-4 bg- gray-900/50 rounded-3xl 
-                            border-4 border-purple-400 backdrop-blur-md
+                  className={`absolute z-10 w-full md:w-6/12 p-4 
+                            dark:bg-gray-900/50 bg-white/50 rounded-3xl 
+                            dark:border-4 dark:border-purple-400 border-4 border-blue-400 backdrop-blur-md
                             opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out
                             ${index % 2 === 0 ? 'md:left-1/2 md:ml-12' : 'md:right-1/2 md:mr-12'}`}
                 >
@@ -194,7 +209,7 @@ export default function Projects() {
                     project.gifs &&
                     project.gifs.map((item, index) => (
                       <div key={index}>
-                        <p className='mb-3'>{item.decs}</p>
+                        <p className='mb-3 dark:text-zinc-200 text-zinc-700'>{item.decs}</p>
                         <Image
                           src={item.src}
                           alt="start live"
@@ -205,7 +220,7 @@ export default function Projects() {
                       </div>
                     ))
                   }
-                  <p className="text-gray-200 text-lg mt-2">{project.description}</p>
+                  <p className="dark:text-zinc-200 text-zinc-700 text-lg mt-2">{project.description}</p>
                 </div>
               </div>
             ))}

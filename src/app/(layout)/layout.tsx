@@ -65,16 +65,16 @@ export default function RootLayout({
         </Providers>
       </div>
       <ul className="fixed bottom-0 right-10 self-start">
-        <li className="text-2xl hover:text-blue-700 cursor-pointer">
+        <li className="text-2xl dark:hover:text-blue-400 hover:text-blue-700 cursor-pointer dark:text-blue-300 text-blue-600 transition-colors duration-300">
           <a href="https://www.linkedin.com/in/kenji-ding-50308527b/" target="_blank"><FaLinkedin></FaLinkedin></a>
         </li>
-        <li className="text-2xl mt-5 mb-5 hover:text-gray-700 cursor-pointer">
+        <li className="text-2xl mt-5 mb-5 dark:hover:text-gray-400 hover:text-gray-700 cursor-pointer dark:text-gray-300 text-gray-600 transition-colors duration-300">
           <a href="https://github.com/kenjiding" target="_blank"><FaGithub></FaGithub></a>
         </li>
-        <li className="text-2xl hover:text-green-700 cursor-pointer">
+        <li className="text-2xl dark:hover:text-green-400 hover:text-green-700 cursor-pointer dark:text-green-300 text-green-600 transition-colors duration-300">
           <a href="mailto:kenjiding807@gmail.com" target="_blank"><MdOutlineMarkEmailRead></MdOutlineMarkEmailRead></a>
         </li>
-        <li className="w-0.5 h-32 bg-orange-400 m-auto mt-5"></li>
+        <li className="w-0.5 h-32 dark:bg-orange-300 bg-orange-400 m-auto mt-5"></li>
       </ul>
       <Script defer src="/js/clock.js" />
         <Script

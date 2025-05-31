@@ -33,7 +33,7 @@ export default async function Home() {
             profile.map((data) => (
               <div key={data._id} className="lg:max-w-2xl max-w-2xl">
                 <Slide>
-                  <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
+                  <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full dark:text-white text-zinc-800">
                     {data.headline}
                   </h1>
                   <ShinyText text={data.shortBio}></ShinyText>
@@ -54,7 +54,7 @@ export default async function Home() {
       </div>
       <Slide delay={0.1}>
         <div className="mt-32 mb-32">
-          <h2 className="font-incognito text-4xl font-bold tracking-tight animate-bounce">Skills</h2>
+          <h2 className="font-incognito text-4xl font-bold tracking-tight animate-bounce dark:text-white text-zinc-800">Skills</h2>
           <Social type="frontend" />
           <Social type="backend" />
           <Social type="devOps" />

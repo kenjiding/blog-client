@@ -21,7 +21,7 @@ export default function EmptyState({ value, title, icon, message }: stateType) {
           />
         )}
       </div>
-      <h3 className="   font-bold tracking-tight text-xl mb-3">
+      <h3 className="font-bold tracking-tight text-xl mb-3 dark:text-white text-zinc-800">
         {title ?? `No ${value} Found`}
       </h3>
       <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-6 ml-4 max-w-sm">

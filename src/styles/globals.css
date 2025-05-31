@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  /* 确保body不会产生额外的滚动条 */
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -51,6 +56,8 @@ a {
   backface-visibility: hidden;
   height: 100vh;
   overflow: auto;
+  /* 移动端优化 */
+  -webkit-overflow-scrolling: touch;
 }
 
 #main-content.active {
@@ -62,6 +69,42 @@ a {
   height: 100vh;
   overflow: hidden;
   position: relative;
+}
+
+/* 移动端滚动优化 */
+@media (max-width: 768px) {
+  /* 防止body产生滚动条 */
+  html, body {
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
+  #root {
+    height: 100vh;
+    height: -webkit-fill-available; /* iOS Safari 兼容 */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #main-content {
+    height: 100vh;
+    height: -webkit-fill-available; /* iOS Safari 兼容 */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    /* 确保这是唯一的滚动容器 */
+    position: relative;
+  }
+  
+  /* 防止其他容器产生额外的滚动条 */
+  main {
+    overflow: visible;
+  }
+  
+  /* 特别处理可能导致水平滚动的容器 */
+  .max-w-7xl, .max-w-6xl, .max-w-4xl, .max-w-2xl {
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 @media print {

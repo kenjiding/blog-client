@@ -19,7 +19,7 @@ export default async function Home() {
   }];
 
   return (
-    <main className="max-w-7xl mx-auto  px-6 lg:mt-32 mt-20">
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:mt-32 mt-20">
       <section className="relative flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 mb-16 min-h-[600px] md:min-h-[500px]">
         {/* 背景 SVG */}
         <div className="absolute inset-0 z-0">
@@ -31,29 +31,31 @@ export default async function Home() {
           {/* Profile 内容 */}
           {profile &&
             profile.map((data) => (
-              <div key={data._id} className="lg:max-w-2xl max-w-2xl">
+              <div key={data._id} className="lg:max-w-2xl max-w-full w-full">
                 <Slide>
-                  <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full dark:text-white text-zinc-800">
+                  <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight w-full dark:text-white text-zinc-800">
                     {data.headline}
                   </h1>
-                  <ShinyText text={data.shortBio}></ShinyText>
+                  <div className="w-full">
+                    <ShinyText text={data.shortBio}></ShinyText>
+                  </div>
                 </Slide>
               </div>
             ))}
 
           {/* 时钟 */}
-          <Slide delay={0.14} className="w-full flex justify-center xl:justify-end">
+          <Slide delay={0.14} className="w-full flex justify-center xl:justify-end mt-7">
             <div className="relative z-10">
               <animated-clock-com></animated-clock-com>
             </div>
           </Slide>
         </div>
       </section>
-      <div className="flex justify-center">
+      <div className="flex justify-center w-full">
         <DownloadPDFButton></DownloadPDFButton>
       </div>
       <Slide delay={0.1}>
-        <div className="mt-32 mb-32">
+        <div className="mt-32 mb-32 w-full">
           <h2 className="font-incognito text-4xl font-bold tracking-tight animate-bounce dark:text-white text-zinc-800">Skills</h2>
           <Social type="frontend" />
           <Social type="backend" />

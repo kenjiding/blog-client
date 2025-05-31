@@ -1,4 +1,3 @@
-
 @import "prism.css";
 
 body {
@@ -6,6 +5,9 @@ body {
   background-size: 200px 200px;
   background-position: 0 0;
   cursor: url('/images/normal.cur'), auto;
+  /* 移动端优化 */
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 
 a:-webkit-any-link {

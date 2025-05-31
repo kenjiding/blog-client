@@ -3,12 +3,15 @@ const ShinyText = ({ text = '', disabled = false, speed = 3, className = '' }) =
 
   return (
     <div
-      className={`dark:text-zinc-300 text-zinc-600 bg-clip-text inline-block ${disabled ? '' : 'animate-shine'} ${className}`}
+      className={`bg-clip-text text-transparent inline-block ${disabled ? 'dark:text-zinc-300 text-zinc-600' : 'animate-shine'} ${className}`}
       style={{
-        backgroundImage: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 60%)',
+        backgroundImage: disabled 
+          ? 'none'
+          : 'linear-gradient(120deg, rgba(107, 114, 128, 0.7) 40%, rgba(255, 255, 255, 1) 50%, rgba(107, 114, 128, 0.7) 60%)',
         backgroundSize: '200% 100%',
         WebkitBackgroundClip: 'text',
         animationDuration: animationDuration,
+        color: disabled ? 'inherit' : 'transparent',
       }}
     >
       {text}

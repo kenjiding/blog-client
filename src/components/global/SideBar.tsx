@@ -51,7 +51,7 @@ const MobileSidebar = () => {
           sidebarOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full relative overflow-y-auto">
+        <div className="flex flex-col h-full relative">
           {/* Gradient overlay for visual depth */}
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-gray-900/80 pointer-events-none" />
 

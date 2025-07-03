@@ -5,14 +5,15 @@ import { Slide } from "@/components/animation/Slide";
 import ContributionGraph from "@/components/pages/GithubCalendarComponent";
 import DownloadPDFButton from "@/components/DownloadPDFButton";
 import ShinyText from "@/components/ShinyText";
+import { summary } from '@/configs/static-config';
+
 
 // 个人简介说明：一个人支撑起整个前后端，云部署的80%的工作
 export default async function Home() {
   const profile: any[] = [{
     _id: "60f4e3b4b7d1e4f7b0b1c5b7",
     headline: "Hi, I'm Kenji Ding as a full-stack developer with 7 years of experience",
-    shortBio: `
-    I am a seasoned developer with a proven track record of delivering high-quality solutions. Developed a GitHub open-source project with over 100 stars. I have built multiple independent website services from the ground up, skilled in Node.js, NestJS, Express, and related frameworks. On the front-end, I am highly proficient in React, Vue, Webpack, and Vite, Micro Front-end, and skilled in building responsive websites and applications across PC, mobile, and desktop. My experience spans full-stack development, microservices, cloud technologies like AWS, and SEO optimization. I am passionate about performance optimization and latest tech exploration. I specialize in writing clean, test-driven code, ensuring project stability through comprehensive testing (TDD and E2E). As an individual contributor, I have independently handled 80% of the front-end, back-end, and cloud deployment work in multiple projects, working collaboratively to deliver innovative, efficient, and user-centric solutions`,
+    shortBio: summary,
     socials: {
       github: "",
     },

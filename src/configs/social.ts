@@ -34,14 +34,14 @@ export const socialLinks = [
   },
   {
     id: 3,
-    name: "Nestjs",
+    name: "Python",
     url: "https://linkedin.com/in/kenjiding",
     icon: SiNestjs,
     status: "backend",
   },
   {
     id: 4,
-    name: "Express/Koa",
+    name: "Nestjs/Express/Koa",
     url: "https://codepen.io/kenjiding",
     icon: SiKoa,
     status: "backend",

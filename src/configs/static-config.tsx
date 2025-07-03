@@ -55,6 +55,10 @@ export const MenuData = [
   },
 ];
 
+export const summary = `
+Seasoned full-stack developer with a GitHub open-source project (100+ stars) and multiple independent website services built from scratch. Contributed to and successfully drove the internal rollout and integration of LLM Agent + MCP, Tools technologies. Expert in Node.js, NestJS, Express, React, Vue, Webpack, Vite, and micro front-ends, delivering responsive, high-performance applications across PC, mobile, and desktop. Proficient in microservices, AWS, SEO, and performance optimization. Passionate about clean, test-driven code (TDD, E2E) and cutting-edge tech. Independently handled 80% of front-end, back-end, and cloud deployment in collaborative, user-centric projects.
+`;
+
 export const jobs: any[] = [
   {
     "_id": "1",
@@ -68,11 +72,12 @@ export const jobs: any[] = [
     "endDate": "now",
     "techStack": ["Next.js", "Node.js", "Nest.js", "Redis", "RabbitMQ", "AWS", "GitLab CI/CD"],
     "description": [
-      `Designed and optimized a <span class="highlight-text">high-concurrency</span> order-snapping service using 
-        <span class="highlight-text">Node.js</span>, <span class="highlight-text">Redis</span>, and 
-        <span class="highlight-text">RabbitMQ</span>, leveraging <span class="highlight-text">Lua scripts</span>, 
-        distributed locks, and async queues to reduce order processing latency from <span class="highlight-text">200ms to 50ms</span>, 
-        stably handling <span class="highlight-text">100,000</span> requests per second.`,
+      // `Designed and optimized a <span class="highlight-text">high-concurrency</span> order-snapping service using 
+      //   <span class="highlight-text">Node.js</span>, <span class="highlight-text">Redis</span>, and 
+      //   <span class="highlight-text">RabbitMQ</span>, leveraging <span class="highlight-text">Lua scripts</span>, 
+      //   distributed locks, and async queues to reduce order processing latency from <span class="highlight-text">200ms to 50ms</span>, 
+      //   stably handling <span class="highlight-text">100,000</span> requests per second.`,
+      `Contributed to an <span class="highlight-text">LLM, RAG, and Agent-driven AI intelligent query system</span>. Designed and deployed autonomous Agents to orchestrate <span class="highlight-text">Workflows</span> and dynamically call <span class="highlight-text">Tools</span> (e.g., order/logistics APIs). Enabled multi-channel <span class="highlight-text">(MCP)</span> real-time natural language Q&A and sophisticated business operations.`,
       `Enhanced <span class="highlight-text">SEO</span> for a <span class="highlight-text">Next.js</span> 
       e-commerce platform by implementing <span class="highlight-text">incremental static regeneration (ISR)</span> 
       and dynamic sitemap generation, improving page load speed by <span class="highlight-text">30%</span> and 
@@ -111,17 +116,11 @@ export const jobs: any[] = [
       <span class="highlight-text">low-code BI visualization platform</span>, Built a 
       <span class="highlight-text">remote plugin system</span> and <span class="highlight-text">CLI scaffold</span>, 
       streamlining development workflows and boosting efficiency.`,
+      `Architected the internal component library with <span class="highlight-text">dynamic resource extraction via webpack external</span>, compiling only component source to avoid asset precompression; developed a <span class="highlight-text">custom Babel plugin</span> for <span class="highlight-text">AST-based</span> CSS injection, enabling both tree-shaken and full imports to optimize build performance and reusability.`,
       `Built a <span class="highlight-text">serverless</span> service using Node.js to generate web page screenshots with 
       <span class="highlight-text">Puppeteer</span> and automatically push them to users, enabling low-cost, 
       maintenance-free automation.`,
-      `Collaborated on developing a full-link data processing <span class="highlight-text">SASS platform</span>, 
-      responsible for building the <span class="highlight-text">micro frontend</span> engineering framework 
-      and handling the integration issues of <span class="highlight-text">React</span> and 
-      <span class="highlight-text">Vue</span> sub-projects, Resolved complex dependency and state management challenges, 
-      enhancing system reliability.`,
-      `Led the development of the company's internal <span class="highlight-text">business component library</span>, 
-      supporting both full and on-demand imports, enhance the reusability of the same components across different projects, 
-      accelerating feature delivery.`,
+      `Led greenfield development and optimization of core <span class="highlight-text">micro-frontend</span> infrastructure (routing, lifecycle, resource loading). Utilized <span class="highlight-text">cross-framework communication</span> and <span class="highlight-text">sandboxing</span> to decouple business modules, enabling multi-stack (React/Vue) parallel development and providing a robust foundation for large-scale SaaS platform iterations.`,
       `Led the splitting of a large-scale project into <span class="highlight-text">monorepo multi-package</span> management, 
       making it easier to maintain and decouple. Implemented <span class="highlight-text">multi-version build solutions</span> for the SASS platform.`,
       // `Achieved 92% unit test for the core functionality coverage using Jest, and effectively improved code quality and maintainability through the Test-Driven Development (TDD) approach.`

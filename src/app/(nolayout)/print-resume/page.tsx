@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FaPhone, FaEnvelope, FaGlobe, FaGithub, FaPassport } from 'react-icons/fa';
-import { jobs } from '@/configs/static-config';
+import { jobs, summary } from '@/configs/static-config';
 
 // Helper function to parse description with <span class="highlight-text"> to <strong>
 const parseDescription = (text: string) => {
@@ -53,7 +53,7 @@ export default function ResumePage() {
           <section className="mb-6">
             <h2 className="text-lg font-bold text-gray-800 uppercase mb-2 border-b border-gray-300 pb-1">Professional Summary</h2>
             <p className="text-gray-700 leading-relaxed text-sm">
-            Seasoned full-stack developer with a GitHub open-source project (100+ stars) and multiple independent website services built from scratch. Expert in Node.js, NestJS, Express, React, Vue, Webpack, Vite, and micro front-ends, delivering responsive, high-performance applications across PC, mobile, and desktop. Proficient in microservices, AWS, SEO, and performance optimization. Passionate about clean, test-driven code (TDD, E2E) and cutting-edge tech. Independently handled 80% of front-end, back-end, and cloud deployment in collaborative, user-centric projects.
+              {summary}
             </p>
           </section>
 
@@ -85,7 +85,7 @@ export default function ResumePage() {
               {/* Backend Skills */}
               <div>
                 <h3 className="font-bold text-gray-700 mb-1">Backend</h3>
-                <p className="text-gray-600">Node.js, Java, NestJS, Express, Koa, tRPC, MySQL, MongoDB, Redis, RabbitMQ</p>
+                <p className="text-gray-600">Node.js, Python, Java, NestJS, Express, tRPC, MySQL, MongoDB, Redis, RabbitMQ</p>
               </div>
               
               {/* DevOps & Other Skills */}

@@ -10,8 +10,8 @@ const parseDescription = (text: string) => {
 
 export default function ResumePage() {
   return (
-    <div className="bg-white font-sans min-h-screen print:p-0">
-      <div className="max-w-4xl mx-auto bg-white print:shadow-none print:max-w-full">
+    <div className="bg-white font-sans min-h-screen print:p-0 print-resume-container">
+      <div className="max-w-4xl mx-auto bg-white print:shadow-none print:max-w-full print:m-0">
         {/* Header Section - Compact and print-friendly */}
         <header className="px-8 pt-8 pb-6 print:pt-2 print:pb-2 print:px-4">
           <div className="flex justify-between items-start border-b border-gray-300 pb-4">
@@ -48,7 +48,7 @@ export default function ResumePage() {
         </header>
 
         {/* Main Content */}
-        <div className="px-8 pb-8 print:px-4 print:pb-4">
+        <div className="px-8 pb-8 print:px-4 print:pb-4 print:min-h-0">
           {/* Professional Summary */}
           <section className="mb-6">
             <h2 className="text-lg font-bold text-gray-800 uppercase mb-2 border-b border-gray-300 pb-1">Professional Summary</h2>
@@ -72,7 +72,7 @@ export default function ResumePage() {
           </section> */}
 
           {/* Skills Section - More condensed for print */}
-          <section className="mb-6">
+          <section className="mb-6 print:mb-3">
             <h2 className="text-lg font-bold text-gray-800 uppercase mb-2 border-b border-gray-300 pb-1">Key Technical Skills</h2>
             
             <div className="grid grid-cols-1 grid-cols-3 gap-4 print:gap-2 text-sm">
@@ -97,10 +97,10 @@ export default function ResumePage() {
           </section>
 
           {/* Work Experience */}
-          <section className="mb-6">
+          <section className="mb-6 print:mb-3">
             <h2 className="text-lg font-bold text-gray-800 uppercase mb-2 border-b border-gray-300 pb-1">Professional Experience</h2>
             {jobs.map((job) => (
-              <div key={job._id} className="mb-5">
+              <div key={job._id} className="mb-5 print:mb-3">
                 <div className="flex justify-between items-baseline mb-1">
                   <h3 className="text-xl font-bold text-gray-800">{job.name} - <span className='text-sm font-serif text-gray-700'> ({job.jobTitle})</span></h3>
                   <span className="text-gray-600 text-sm">{`${job.startDate} - ${job.endDate}`}</span>
@@ -127,7 +127,7 @@ export default function ResumePage() {
                       </div>
                     )
                   }
-                <ul className="space-y-1 list-disc pl-5 text-sm text-gray-700">
+                <ul className="space-y-1 list-disc pl-5 text-sm text-gray-700 print:space-y-0.5">
                   {job.description.map((desc: any, index: number) => (
                     <li key={index} dangerouslySetInnerHTML={{ __html: parseDescription(desc) }} />
                   ))}

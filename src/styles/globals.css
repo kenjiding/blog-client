@@ -112,13 +112,93 @@ a {
     font-size: 12px !important;
     color: black !important;
     background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   a {
     color: #333 !important;
     text-decoration: none !important;
   }
   @page {
-    margin: 1.5cm !important;
+    margin: 0.5cm !important;
     size: A4 !important;
+  }
+  /* 确保打印时内容不会被截断 */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  /* 防止页面内容被截断 */
+  .print-resume-container {
+    page-break-inside: avoid !important;
+  }
+  /* 优化分页设置，允许更灵活的分页 */
+  section {
+    page-break-inside: auto !important;
+  }
+  /* 只在必要时避免分页 */
+  .avoid-break {
+    page-break-inside: avoid !important;
+  }
+  /* 优化打印时的容器高度 */
+  .print-resume-container {
+    min-height: auto !important;
+    height: auto !important;
+  }
+  /* 减少打印时的间距 */
+  .print-resume-container section {
+    margin-bottom: 0.5rem !important;
+  }
+  .print-resume-container h2 {
+    margin-bottom: 0.25rem !important;
+  }
+  .print-resume-container .mb-6 {
+    margin-bottom: 0.5rem !important;
+  }
+  .print-resume-container .mb-5 {
+    margin-bottom: 0.4rem !important;
+  }
+  /* 确保打印时没有固定高度限制 */
+  .min-h-screen {
+    min-height: auto !important;
+  }
+  /* 移除打印时的最大宽度限制 */
+  .max-w-4xl {
+    max-width: none !important;
+  }
+  /* Chrome浏览器打印优化 */
+  @-webkit-keyframes print-break {
+    from { page-break-before: auto; }
+    to { page-break-before: always; }
+  }
+  /* 确保打印时body和html没有固定高度 */
+  html, body {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  /* 移除所有可能的overflow限制 */
+  * {
+    overflow: visible !important;
+  }
+  /* 特别处理可能影响打印的容器 */
+  #root, #main-content {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+  /* 控制分页行为，避免不必要的空白 */
+  .print-resume-container > div {
+    page-break-inside: auto !important;
+  }
+  /* 允许在section之间分页，但避免在section内部分页 */
+  .print-resume-container section {
+    page-break-inside: auto !important;
+    page-break-after: auto !important;
+  }
+  /* 确保列表项不会被分页截断 */
+  .print-resume-container li {
+    page-break-inside: avoid !important;
   }
 }

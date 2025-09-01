@@ -55,8 +55,11 @@ export const MenuData = [
   },
 ];
 
+// export const summary = `
+// Seasoned full-stack developer with a GitHub open-source project (100+ stars) and more than ten independent website services built from scratch. Contributed to and successfully drove the internal rollout and integration of LLM Agent + Function Calling +MCP, Tools technologies. Expert in Node.js, NestJS, Express, React, Vue, Webpack, Vite, and micro front-ends, delivering responsive, high-performance applications across PC, mobile, and desktop. Proficient in microservices, AWS, SEO, and performance optimization. Passionate about clean, test-driven code (TDD, E2E) and cutting-edge tech. Independently handled 80% of front-end, back-end, and cloud deployment in collaborative, user-centric projects.
+// `;
 export const summary = `
-Seasoned full-stack developer with a GitHub open-source project (100+ stars) and multiple independent website services built from scratch. Contributed to and successfully drove the internal rollout and integration of LLM Agent + MCP, Tools technologies. Expert in Node.js, NestJS, Express, React, Vue, Webpack, Vite, and micro front-ends, delivering responsive, high-performance applications across PC, mobile, and desktop. Proficient in microservices, AWS, SEO, and performance optimization. Passionate about clean, test-driven code (TDD, E2E) and cutting-edge tech. Independently handled 80% of front-end, back-end, and cloud deployment in collaborative, user-centric projects.
+Seasoned full-stack developer with a GitHub open-source project (100+ stars) and more than ten independent website services built from scratch. Passionate about and knowledgeable in LLM Agent + Function Calling + MCP + RAG, Tools technologies. Expert in Node.js, NestJS, Express, React, Vue, Webpack, Vite, and micro front-ends, delivering responsive, high-performance applications across PC, mobile, and desktop. Proficient in microservices, AWS, SEO, and performance optimization. Passionate about clean, test-driven code (TDD, E2E) and cutting-edge tech. Independently handled 80% of front-end, back-end, and cloud deployment in collaborative, user-centric projects.
 `;
 
 export const jobs: any[] = [
@@ -72,27 +75,26 @@ export const jobs: any[] = [
     "endDate": "now",
     "techStack": ["Next.js", "Node.js", "Nest.js", "Redis", "RabbitMQ", "AWS", "GitLab CI/CD"],
     "description": [
-      // `Designed and optimized a <span class="highlight-text">high-concurrency</span> order-snapping service using 
-      //   <span class="highlight-text">Node.js</span>, <span class="highlight-text">Redis</span>, and 
-      //   <span class="highlight-text">RabbitMQ</span>, leveraging <span class="highlight-text">Lua scripts</span>, 
-      //   distributed locks, and async queues to reduce order processing latency from <span class="highlight-text">200ms to 50ms</span>, 
-      //   stably handling <span class="highlight-text">100,000</span> requests per second.`,
-      `Contributed to an <span class="highlight-text">LLM, RAG, and Agent-driven AI intelligent query system</span>. Designed and deployed autonomous Agents to orchestrate <span class="highlight-text">Workflows</span> and dynamically call <span class="highlight-text">Tools</span> (e.g., order/logistics APIs). Enabled multi-channel <span class="highlight-text">(MCP)</span> real-time natural language Q&A and sophisticated business operations.`,
-      `Enhanced <span class="highlight-text">SEO</span> for a <span class="highlight-text">Next.js</span> 
-      e-commerce platform by implementing <span class="highlight-text">incremental static regeneration (ISR)</span> 
-      and dynamic sitemap generation, improving page load speed by <span class="highlight-text">30%</span> and 
-      increasing organic search visibility.`,
+      // `Contributed to an <span class="highlight-text">Agent-driven AI</span> intelligent query system based on <span class="highlight-text">LLM, Function Calling, MCP</span>. Designed and deployed autonomous Agents to orchestrate <span class="highlight-text">Workflows</span> and dynamically call <span class="highlight-text">MCP-Tools</span> (e.g., order/logistics/product recommendation APIs). Enabled multi-channel <span class="highlight-text">(MCP)</span> real-time natural language Q&A and sophisticated business operations.`,
       `Using <span class="highlight-text">Lambda Serverless</span> architecture to deploy Next.js applications, 
       optimizing scalability and <span class="highlight-text">40% cost reduction</span>. Front-end resources hosted on 
       <span class="highlight-text">S3</span> and <span class="highlight-text">CloudFront</span> are efficiently 
       distributed via <span class="highlight-text">CDN</span> routing.`,
+      `Enhanced <span class="highlight-text">SEO</span> for a <span class="highlight-text">Next.js</span> 
+      e-commerce platform by implementing <span class="highlight-text">incremental static regeneration (ISR)</span> 
+      and dynamic sitemap generation, improving page load speed by <span class="highlight-text">30%</span> and 
+      increasing organic search visibility.`,
+      `Designed and optimized a <span class="highlight-text">high-concurrency</span> order-snapping service using 
+        <span class="highlight-text">Node.js</span>, <span class="highlight-text">Redis</span>, and 
+        <span class="highlight-text">RabbitMQ</span>, leveraging <span class="highlight-text">Lua scripts</span>, 
+        distributed locks, and async queues to reduce order processing latency from <span class="highlight-text">200ms to 50ms</span>, 
+        stably handling <span class="highlight-text">100,000</span> requests per second.`,
       `Implemented <span class="highlight-text">GitLab CI/CD</span> pipeline to efficiently achieve automated deployment 
       and regression testing, enhancing development and operational efficiency.`,
       `Deployed scalable and high availability full-stack services on <span class="highlight-text">AWS</span> with 
       <span class="highlight-text">EC2</span>, <span class="highlight-text">Load Balancer</span>, and 
-      <span class="highlight-text">Auto Scaling Groups</span>; leveraged <span class="highlight-text">Docker</span> 
-      for containerized deployment and <span class="highlight-text">Nginx</span> for efficient traffic routing, 
-      enhancing system performance and responsiveness.`,
+      <span class="highlight-text">Auto Scaling Groups</span>; leveraged <span class="highlight-text">Docker + Docker compose</span> 
+      for containerized deployment, enhancing system performance and responsiveness.`,
       `Integrate <span class="highlight-text">Cypress E2E</span> testing and <span class="highlight-text">Lighthouse CI</span> 
       for comprehensive testing and performance monitoring, Greatly improved the fault tolerance and maintainability of the project, 
       keep consistently <span class="highlight-text">high performance</span> scores above 
@@ -116,6 +118,7 @@ export const jobs: any[] = [
       <span class="highlight-text">low-code BI visualization platform</span>, Built a 
       <span class="highlight-text">remote plugin system</span> and <span class="highlight-text">CLI scaffold</span>, 
       streamlining development workflows and boosting efficiency.`,
+      `Developed an innovative <span class="highlight-text">code isolation component</span>, seamlessly integrating React code into Vue projects using <span class="highlight-text">online Babel for JSX parsing</span>, and optimizing performance with <span class="highlight-text">Web Worker</span> to address Babel parsing issues, combined with <span class="highlight-text">JS Sandbox</span> and platform variable injection to create a <span class="highlight-text">highly secure isolation environment</span>, preventing user code from accessing site JS memory variables, ensuring system security and data privacy`,
       `Architected the internal component library with <span class="highlight-text">dynamic resource extraction via webpack external</span>, compiling only component source to avoid asset precompression; developed a <span class="highlight-text">custom Babel plugin</span> for <span class="highlight-text">AST-based</span> CSS injection, enabling both tree-shaken and full imports to optimize build performance and reusability.`,
       `Built a <span class="highlight-text">serverless</span> service using Node.js to generate web page screenshots with 
       <span class="highlight-text">Puppeteer</span> and automatically push them to users, enabling low-cost, 
@@ -143,10 +146,11 @@ export const jobs: any[] = [
     "techStack": ["Web Component", "React", "Vue", "Redux", "Vuex", "Webpack"],
     "description": [
       `Built a reusable Component library with <span class="highlight-text">Web Component</span> and Shadow DOM, enabling cross-framework integration and powering a design system used by 3+ teams`,
+      `Design and development of an innovative <span class="highlight-text"> Webpack skeleton screen plugin</span>, reducing page load time by <span class="highlight-text">30%</span> through intelligent pre-rendering techniques, significantly enhancing perceived performance.`,
       `Enhanced project build performance, achieving an <span class="highlight-text">16MB</span> reduction in package size and a notable increase in build access speed.`,
       `Responsible for developing and maintaining the internal YY live data content processing platform, as well as audio and video streaming playback. Participated in the engineering of remote public library sharing using <span class="highlight-text">module federation</span>.`,
       // `Implemented a Node.js BFF layer to harmonize data discrepancies and integrate cleansing processes across various live platforms.`,
-      `Led the refactoring of the PC project into a responsive project to meet the needs of mobile office work.`
+      `Led the refactoring of the PC project into a responsive project to meet the needs of mobile office work.`,
     ],
     "images": [require("../assets/images/yy-live.jpg")]
   },

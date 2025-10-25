@@ -3,3 +3,4 @@ declare namespace JSX {
     "animated-clock-com": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
   }
 }
+

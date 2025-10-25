@@ -16,7 +16,7 @@ export default function ResumePage() {
         <header className="px-8 pt-8 pb-6 print:pt-2 print:pb-2 print:px-4">
           <div className="flex justify-between items-start border-b border-gray-300 pb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">KENJIDING</h1>
+              <h1 className="text-3xl font-bold text-gray-800">Daniel kenji</h1>
               <h2 className="text-xl text-gray-600 mt-1">Senior Full Stack Engineer</h2>
               <p className="text-gray-500 font-bold">7 Years of Experience</p>
             </div>
@@ -41,7 +41,7 @@ export default function ResumePage() {
               </div>
               <div className="flex items-center justify-end">
                 <FaPassport className="text-gray-500 mr-2 w-3 h-3" />
-                <span className="text-gray-600">Work Visa (Expires: 09-2028)</span>
+                <span className="text-gray-600">Work Visa (Full-time eligibility)</span>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function ResumePage() {
               {/* Frontend Skills */}
               <div>
                 <h3 className="font-bold text-gray-700 mb-1">Frontend</h3>
-                <p className="text-gray-600">JavaScript, TypeScript, React, Vue.js, Next.js, Webpack, Vite, Tailwind CSS, Micro Frontend</p>
+                <p className="text-gray-600">React, Vue.js, Next.js, Micro Frontend, Tailwind CSS, JavaScript, TypeScript, Webpack, Vite, Tailwind CSS</p>
               </div>
               
               {/* Backend Skills */}

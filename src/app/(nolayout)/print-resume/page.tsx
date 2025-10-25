@@ -2,7 +2,10 @@ import Link from 'next/link';
 import { FaPhone, FaEnvelope, FaGlobe, FaGithub, FaPassport } from 'react-icons/fa';
 import { jobs, summary } from '@/configs/static-config';
 
+
 const textGray700StrongClass = 'text-gray-700 font-semibold';
+function getHighlightedText(text: string) {
+}
 
 // Helper function to parse description with <span class="highlight-text"> to <strong>
 const parseDescription = (text: string) => {

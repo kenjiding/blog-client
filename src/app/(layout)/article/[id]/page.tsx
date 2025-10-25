@@ -8,6 +8,16 @@ import Tags from '@/components/tags';
 import MarkdownPreview from '@/components/markdown-preview';
 import { IArticle } from '@/components/article';
 
+
+const textGray700StrongClass = 'text-gray-700 font-semibold';
+function getHighlightedText(text: string) {
+  return text.replace(
+    /<span class="highlight-text">([^<]+)<\/span>/g,
+    `<strong class="${textGray700StrongClass}">$1</strong>`
+  );
+}
+
+
 interface ArticlePageProps {
   params: {
     id: string;
